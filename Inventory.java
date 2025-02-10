@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Inventory{
+    public static void main(String[] args) {
+        String[] shirtTypes = {"Red", "Green", "Blue", "Yellow"};
+        int[] stock = {100, 100, 100, 100};
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("How many would you like to get");
+        int quantity = scanner.nextInt();
+        if(quantity <=0) {
+            System.out.println("Invalid quantity");
+        }
+        }
+        
+        public static void purchaseShirt(int[] stock, String[] shirtTypes,int shirtIndex, int quantity){
+
+            if (stock[shirtIndex] >= quantity) {
+                stock[shirtIndex] -= quantity;
+                System.out.println("you have purchased: " + quantity + " " + shirtTypes[shirtIndex] + "shirts");
+            } else {
+                System.out.print("sorry there are not enough" + shirtTypes[shirtIndex]);
+            }
+        }
+        public static void checkStock(int stockLevel, String shirtTypes) {
+            if (stockLevel == 0) {
+                System.out.println(shirtType + "shirt is out of stock");
+            } else if (stockLevel < 20){
+                System.out.println(shirtType + "shirt is running out");
+            } else {
+                System.out.println(shirtType + "shirt is available");
+            }
+        }
+    
+        }
+
+    
+
+
+
+
