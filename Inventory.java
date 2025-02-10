@@ -17,10 +17,20 @@ public class Inventory{
 
             if (stock[shirtIndex] >= quantity) {
                 stock[shirtIndex] -= quantity;
-                System.out.println("you have purchased: " + quantity );
+                System.out.println("you have purchased: " + quantity + " " + shirtTypes[shirtIndex] + "shirts");
+            } else {
+                System.out.print("sorry there are not enough" + shirtTypes[shirtIndex]);
             }
         }
-
+        public static void checkStock(int stockLevel, String shirtTypes) {
+            if (stockLevel == 0) {
+                System.out.println(shirtType + "shirt is out of stock");
+            } else if (stockLevel < 20){
+                System.out.println(shirtType + "shirt is running out");
+            } else {
+                System.out.println(shirtType + "shirt is available");
+            }
+        }
     
         }
 
