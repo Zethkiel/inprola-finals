@@ -1,10 +1,9 @@
 public class Customer {
-<<<<<<< HEAD
     public static void main(String[] args) {
        public String name;
        public String email;
        public String address;
-       public int phone number;
+       public int phone;
        public String customer type;
 
        public String getName() {
@@ -31,15 +30,13 @@ public class Customer {
         this.address = address;
        }
 
-       public int getPhoneNumber() {
-        return phone number;
+       public int getPhone() {
+        return phone;
        }
 
-       public void setPhoneNumber(int phone number) {
-        this.phone number = phone number;
+       public void setPhone(int phone) {
+        this.phone = phone;
        }
-=======
 public static void main(String[] args) {
 Scanner scanner = new Scanner(System.in);
 }
->>>>>>> 9f7494ea7e47532734e8ce02bfd4c6d9c5b78999
