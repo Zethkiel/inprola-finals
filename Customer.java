@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Customer {
-    // Instance variables
     private String name;
     private String email;
     private String address;
