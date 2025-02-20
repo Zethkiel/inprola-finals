@@ -49,9 +49,9 @@ class Main{
         System.out.println("4 = Blue Polo Shirt");
         System.out.println("5 = Indigo Long Sleeve");
         System.out.println("6 = Long Violet Skirt");
-        int selectColor = scanner.nextInt();
-        if (selectColor >= 0 && selectColor < designs.length) {
-            clothing.design = designs[selectColor];
+        int selectDesign = scanner.nextInt();
+        if (selectDesign >= 0 && selectDesign < designs.length) {
+            clothing.design = designs[selectDesign];
         }
 
         String [] sizes = {"XS" ,"S", "M", "L", "XL", "2XL", "3XL"};
