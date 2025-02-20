@@ -1,47 +1,35 @@
 public class Payment {
 
-    private String paymentMethod;
+    private String method;
+
+    public void setPaymentMethod() {
+        method = "0";
+    }
 
     public void setPaymentMethod(String pM) {
-        paymentMethod = pM;
+        method = pM;
     }
 
-    public void paymentMethod() {
-        if (paymentMethod.equalsIgnoreCase("credit")) {
-        } else if (paymentMethod.equalsIgnoreCase("debit")) {
-        } else if (paymentMethod.equalsIgnoreCase("check")) {
-        } else if (paymentMethod.equalsIgnoreCase("e-wallet")) {
-        } else if (paymentMethod.equalsIgnoreCase("cash")) {
-        } else {
-            System.out.println("The payment method is invalid. Please try again.");
-        }
-    }
-
-    public bool payment(double cost, double bal) {
-        if (paymentMethod.equalsIgnoreCase("credit")
-        || paymentMethod.equalsIgnoreCase("debit")
-        || paymentMethod.equalsIgnoreCase("check")
-        || paymentMethod.equalsIgnoreCase("ewallet")) {
+    public void paymentVerify(double cost, double bal) {
+        if (method.equalsIgnoreCase("credit")
+        || method.equalsIgnoreCase("debit")
+        || method.equalsIgnoreCase("check")
+        || method.equalsIgnoreCase("e-wallet")) {
             if (cost < bal){
-                return true;
+                System.out.println("payment has been deducted to the balance./nThe payment is complete.");
             } else {
-                return false;
+                System.out.println("Insufficient balance for this purchase./nPlease make sure to have enough balance to proceed with the payment.");
             }
-        } else if (paymentMethod.equalsIgnoreCase(cash)) {
-            return true;
+        } else if (method.equalsIgnoreCase("cash")) {
+            System.out.println("This purchase is through cash-on-delivery");
         } else {
-            return false;
+            System.out.println("This payment method is not recognized, use a valid payment method.(credit, debit, check, e-wallet, or cash");
         }
     }
 
-    public String paymentVerify() {
-        if (minusBalance() == true) {
-            return "The payment has been deducted to your balance./nThe payment is complete.";
-        } else {
-            return "You have insufficient balance for this purchase./nPlease make sure you have enough balance to proceed with the payment.";
-        }
+    public static void main(String[] args) {
+        Payment p = new Payment();
+        p.setPaymentMethod("cash");
+        p.paymentVerify(2323.33, 23342342);
     }
-
-    public isThePaymentBalanceSufficient() {}
-
 }
