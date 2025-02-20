@@ -5,13 +5,13 @@ public class Inventory {
         String[] shirtTypes = {"Red", "Green", "Blue", "Yellow"};
         int[] stock = {100, 100, 100, 100};
         Scanner scanner = new Scanner(System.in);
-        
+
         while (true) {
             System.out.println("\nAvailable shirts:");
             for (int i = 0; i < shirtTypes.length; i++) {
                 System.out.println(i + ": " + shirtTypes[i] + " (" + stock[i] + " in stock)");
             }
-            
+
             System.out.print("\nEnter the number of the shirt you want to purchase: ");
             int shirtIndex = scanner.nextInt();
 
@@ -28,7 +28,7 @@ public class Inventory {
                 continue;
             }
 
-            purchaseShirt(stock, shirtTypes, shirtIndex, quantity);
+            Supplier.purchaseShirt(stock, shirtTypes, shirtIndex, quantity);
 
             checkStock(stock[shirtIndex], shirtTypes[shirtIndex]);
 
@@ -45,15 +45,6 @@ public class Inventory {
         }
 
         scanner.close();
-    }
-
-    public static void purchaseShirt(int[] stock, String[] shirtTypes, int shirtIndex, int quantity) {
-        if (stock[shirtIndex] >= quantity) {
-            stock[shirtIndex] -= quantity;
-            System.out.println("You have purchased " + quantity + " " + shirtTypes[shirtIndex] + " shirts.");
-        } else {
-            System.out.println("Sorry, there are not enough " + shirtTypes[shirtIndex] + " shirts in stock.");
-        }
     }
 
     public static void checkStock(int stockLevel, String shirtType) {
