@@ -22,4 +22,16 @@ public class ItemOrder {
     public void setItemDesc(String itemDesc) {
         this.itemDesc = itemDesc;
     }
+
+    public void displayOrder() {
+        System.out.println("Order ID: " + orderId);
+    }
+
+    public static void displayAllOrders(ItemOrder[] orders) {
+        for (ItemOrder order : orders) {
+            if (order != null) {
+                order.displayOrder();
+            }
+        }
+    }
 }
