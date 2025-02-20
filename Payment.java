@@ -1,7 +1,9 @@
 public class Payment {
 
+    // payment method 
     private String method;
 
+    //set the payment method
     public void setPaymentMethod() {
         method = "0";
     }
@@ -10,6 +12,8 @@ public class Payment {
         method = pM;
     }
 
+    //if a valid method and not through cash, then check if balance is sufficient
+    //if cash, then it doesn't check if the user has enough money since it's CoD
     public void paymentVerify(double cost, double bal) {
         if (method.equalsIgnoreCase("credit")
         || method.equalsIgnoreCase("debit")
@@ -27,6 +31,7 @@ public class Payment {
         }
     }
 
+    //For testing
     public static void main(String[] args) {
         Payment p = new Payment();
         p.setPaymentMethod("cash");
