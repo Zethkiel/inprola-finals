@@ -1,18 +1,14 @@
 import java.util.Scanner;
 
-public class Customer {
+class Person {
     private String name;
     private String email;
     private String address;
-    private int phone;
-    private String customerType;
 
-    public Customer(String name, String email, String address, int phone, String customerType) {
+    public Person(String name, String email, String address) {
         this.name = name;
         this.email = email;
         this.address = address;
-        this.phone = phone;
-        this.customerType = customerType;
     }
 
     public String getName() {
@@ -38,6 +34,17 @@ public class Customer {
     public void setAddress(String address) {
         this.address = address;
     }
+}
+
+class Customer extends Person {
+    private int phone;
+    private String customerType;
+
+    public Customer(String name, String email, String address, int phone, String customerType) {
+        super(name, email, address);
+        this.phone = phone;
+        this.customerType = customerType;
+    }
 
     public int getPhone() {
         return phone;
@@ -54,10 +61,13 @@ public class Customer {
     public void setCustomerType(String customerType) {
         this.customerType = customerType;
     }
+}
 
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        // Input customer details
         System.out.println("Enter customer details:");
         System.out.print("Name: ");
         String name = scanner.nextLine();
@@ -73,7 +83,7 @@ public class Customer {
 
         Customer customer = new Customer(name, email, address, phone, customerType);
 
-        System.out.println("Customer Details:");
+        System.out.println("\nCustomer Details:");
         System.out.println("Name: " + customer.getName());
         System.out.println("Email: " + customer.getEmail());
         System.out.println("Address: " + customer.getAddress());
