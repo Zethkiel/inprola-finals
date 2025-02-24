@@ -1,4 +1,4 @@
-public class Shipping
+public class Shipping 
   if (x.equals("payment has been deducted to the balance./nThe payment is complete."){
       System.out.println("The order has been shipped");
   }

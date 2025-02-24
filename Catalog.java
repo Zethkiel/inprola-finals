@@ -92,5 +92,6 @@ class Main {
         NormalPrices normalPrices = new NormalPrices();
         normalPrices.section();
         System.out.println(" ");
+        scanner.close();
     }
 }

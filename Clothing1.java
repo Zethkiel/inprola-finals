@@ -6,11 +6,10 @@ public class Clothing1 {
     public int quantity;
 
 
-    public Clothing() {
+    public Clothing1() {
     }
 
     public void setDesign(String color) {
-        this.design = design;
     }
 
     public String getDesign() {
@@ -36,7 +35,7 @@ public class Clothing1 {
 class Main{
     public static void main(String[] args) {
 
-        Clothing clothing = new Clothing();
+        Clothing1 clothing = new Clothing1();
         Scanner scanner = new Scanner(System.in);
 
         String [] designs = {"Plain Red T-shirt", "Orange Jacket", "Light Yellow Dress", "Dark Green Cargo Pants", "Blue Polo Shirt", "Indigo Long Sleeve", "Long Violet Skirt"};
@@ -78,5 +77,6 @@ class Main{
         System.out.println("Design = "+ clothing.getDesign());
         System.out.println("Size = "+ clothing.getSize());
         System.out.println("Quantity = " + clothing.getQuantity());
+        scanner.close();
     }
 }
