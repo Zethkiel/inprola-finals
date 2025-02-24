@@ -1,4 +1,4 @@
-public class Shipping 
+/*public class Shipping 
 
 paymentVerify p = new paymentVerify();
   
@@ -12,3 +12,4 @@ paymentVerify p = new paymentVerify();
       System.out.println("Transaction failed please try again");
   }
 break;
+*/
