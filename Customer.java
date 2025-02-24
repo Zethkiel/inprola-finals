@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Person {
+abstract class Person {
     private String name;
     private String email;
     private String address;
@@ -36,7 +36,7 @@ class Person {
     }
 }
 
-class Customer extends Person {
+abstract class Customer extends Person {
     private int phone;
     private String customerType;
 
@@ -63,11 +63,10 @@ class Customer extends Person {
     }
 }
 
-public class Main {
+public abstract class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Input customer details
         System.out.println("Enter customer details:");
         System.out.print("Name: ");
         String name = scanner.nextLine();
