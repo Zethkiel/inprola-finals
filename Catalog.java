@@ -1,6 +1,20 @@
 import java.util.Scanner;
-public class Catalog {
+import java.util.Date; //to know what the current date is
 
+public class Catalog {
+private int month;
+private int year;
+private int id;
+private double[] price = {150, 170, 400, 450, 300, 320, 380, 410, 200, 220, 280, 300, 180, 200};
+private double totalPrice;
+
+public Catalog() {
+}
+
+public Catalog(int m, int y) {
+    month = m;
+    year = y;
+}
 
     public void catalogId(int id) {
 
