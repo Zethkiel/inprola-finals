@@ -1,5 +1,10 @@
 public class OrderTaker {
-    private Customer customer;
-    private Catalog catalog;
-    private 
+    private Customer c;
+    private Catalog cat;
+
+    public void checkCustomerType() {
+        if (c.getCustomerType().IgnoreCaseEquals("subscriber")) {
+            
+        }
+    }
 }
