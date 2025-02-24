@@ -1,7 +1,8 @@
 import java.util.Scanner;
 
 public class Inventory {
-    public static void main(String[] args) {
+    
+    public void checkInventory() {
         String[] shirtTypes = {"Red", "Green", "Blue", "Yellow"};
         int[] stock = {100, 100, 100, 100};
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +48,7 @@ public class Inventory {
         scanner.close();
     }
 
-    public static void checkStock(int stockLevel, String shirtType) {
+    public void checkStock(int stockLevel, String shirtType) {
         if (stockLevel == 0) {
             System.out.println(shirtType + " shirt is out of stock.");
         } else if (stockLevel < 20) {

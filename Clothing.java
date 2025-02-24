@@ -1,82 +1,107 @@
 import java.util.Scanner;
 
 public class Clothing {
-    public String design;
-    public String size;
-    public int quantity;
 
+    private final String[] designs = { "Plain Red T-shirt", "Orange Jacket", "Light Yellow Dress",
+            "Dark Green Cargo Pants", "Blue Polo Shirt", "Indigo Long Sleeve", "Long Violet Skirt" };
+    private final String[] sizes = { "XS", "S", "M", "L", "XL", "2XL", "3XL" };
+    private int quantity;
+    private String design;
+    private String size;
 
     public Clothing() {
     }
 
-    public void setDesign(String color) {
-        this.design = design;
+    public String checkClothing(int d, int s) {
+        if (d < designs.length && d > 0) {
+            if (s < sizes.length && s > 0) {
+                design = designs[d - 1];
+                size = sizes[s - 1];
+                return sizes[s - 1] + " " + designs[d - 1];
+            }
+            return "The size for this clothing invalid";
+        } 
+        return "The design you picked is invalid";
     }
 
-    public String getDesign() {
-        return this.design;
+    public void itemCount(int i) {
+        quantity = i;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public String toString() {
+        return "You ordered " + quantity + " " + size + " " + design + ".";
     }
 
-    public String getSize() {
-        return this.size;
-    }
+    class Main {
+        public static void main(String[] args) {
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-    public int getQuantity(){
-        return this.quantity;
-    }
-}
+            Clothing c = new Clothing();
+            Scanner s = new Scanner(System.in);
+            Scanner t = new Scanner(System.in);
+            Scanner u = new Scanner(System.in);
+            Scanner v = new Scanner(System.in);
 
-class Main{
-    public static void main(String[] args) {
+            while (true) {
+            System.out.println("""
+                    clothing design? Type:
+                    '1' for Plain Red T-shirt
+                    '2' for Orange Jacket
+                    '3' for Light Yellow Dress
+                    '4' for Dark Green Cargo Pants
+                    '5' for Blue Polo Shirt
+                    '6' for Indigo Long Sleeve
+                    '7' for Long Violet Skirt
+                    """);
+                    
+            int type = s.nextInt();
 
-        Clothing clothing = new Clothing();
-        Scanner scanner = new Scanner(System.in);
+            if (type < 1 && type > 7) {
+                System.out.println(c.checkClothing(type, 0)); 
+                break;
+            }
 
-        String [] designs = {"Plain Red T-shirt", "Orange Jacket", "Light Yellow Dress", "Dark Green Cargo Pants", "Blue Polo Shirt", "Indigo Long Sleeve", "Long Violet Skirt"};
+            System.out.println("""
 
-        System.out.println("Select a design: ");
-        System.out.println("0 = Plain Red T-shirt");
-        System.out.println("1 = Orange Jacket");
-        System.out.println("2 = Light Yellow Dress");
-        System.out.println("3 = Dark Green Cargo Pants");
-        System.out.println("4 = Blue Polo Shirt");
-        System.out.println("5 = Indigo Long Sleeve");
-        System.out.println("6 = Long Violet Skirt");
-        int selectDesign = scanner.nextInt();
-        if (selectDesign >= 0 && selectDesign < designs.length) {
-            clothing.design = designs[selectDesign];
+                    cloth size? Type:
+                    '1' for XS
+                    '2' for S
+                    '3' for M
+                    '4' for L
+                    '5' for XL
+                    '6' for 2XL
+                    '7' for 3XL
+                    """);
+
+            int size = t.nextInt();
+
+            if (size < 1 && size > 7) {
+                System.out.println(c.checkClothing(type, size)); 
+                break;
+            }
+
+            System.out.println("\nHow many of " + c.checkClothing(type, size) + " would you like to buy?\n");
+            int amt = u.nextInt();
+            c.itemCount(amt);
+
+            System.out.println("");
+            System.out.println(c.toString());
+            System.out.println("\n---------------------");
+            System.out.println("---------------------");
+            System.out.println("---------------------");
+            
+            System.out.println("\nDo you want to add another order? y/n");
+            String yn = v.nextLine();
+            if (yn.equals("n")) {
+                break;
+            } else {
+                System.out.println("");
+                continue;
+            }
+            }
+            s.close();
+            t.close();
+            u.close();
+            v.close();
         }
-
-        String [] sizes = {"XS" ,"S", "M", "L", "XL", "2XL", "3XL"};
-
-        System.out.println("Select a size: ");
-        System.out.println("0 = XS");
-        System.out.println("1 = S");
-        System.out.println("2 = M");
-        System.out.println("3 = L");
-        System.out.println("4 = XL");
-        System.out.println("5 = 2XL");
-        System.out.println("6 = 3XL");
-        int selectSize = scanner.nextInt();
-        if (selectSize >= 0 && selectSize < sizes.length) {
-            clothing.size = sizes[selectSize];
-        }
-
-        System.out.println("Enter Quantity: ");
-        int quantity = scanner.nextInt();
-        clothing.setQuantity(quantity);
-
-
-        System.out.println("CLOTHING DETAILS");
-        System.out.println("Design = "+ clothing.getDesign());
-        System.out.println("Size = "+ clothing.getSize());
-        System.out.println("Quantity = " + clothing.getQuantity());
     }
 }
