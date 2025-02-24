@@ -70,7 +70,7 @@ class NormalPrices extends Catalog{
     }
 }
 
-class Main {
+/*class Main {
     public static void main(String[] args) {
 
         Catalog catalog = new Catalog();
@@ -93,4 +93,4 @@ class Main {
         normalPrices.section();
         System.out.println(" ");
     }
-}
+}*/
