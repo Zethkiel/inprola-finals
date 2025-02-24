@@ -10,6 +10,7 @@ public class Clothing {
     public Clothing() {
     }
 
+    //checks and prints the size, design, and amount of the specified clothing
     public String checkClothing(int d, int s) {
         if (d <= designs.length && d > 0) {
             if (s <= sizes.length && s > 0) {

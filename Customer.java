@@ -7,6 +7,7 @@ public class Customer {
     private int phone;
     private String customerType;
 
+    //public Customer (){}
     public Customer(String name, String email, String address, int phone, String customerType) {
         this.name = name;
         this.email = email;
