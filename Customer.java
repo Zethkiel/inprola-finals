@@ -6,8 +6,6 @@ abstract class Person {
     private String address;
 
     public Person(String name, String email, String address) {
-    //public Customer (){}
-    public Customer(String name, String email, String address, int phone, String customerType) {
         this.name = name;
         this.email = email;
         this.address = address;
@@ -38,7 +36,7 @@ abstract class Person {
     }
 }
 
-abstract class Customer extends Person {
+class Customer extends Person {
     private int phone;
     private String customerType;
 
@@ -65,7 +63,7 @@ abstract class Customer extends Person {
     }
 }
 
-public abstract class Main {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
