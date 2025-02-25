@@ -6,6 +6,8 @@ abstract class Person {
     private String address;
 
     public Person(String name, String email, String address) {
+    //public Customer (){}
+    public Customer(String name, String email, String address, int phone, String customerType) {
         this.name = name;
         this.email = email;
         this.address = address;
