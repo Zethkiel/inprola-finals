@@ -63,6 +63,10 @@ public class Catalog {
         System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
         System.out.println("      " + price[4] + "                             " + price[5] + "                                 " + price[10] + "                                  " + price[11]);
         System.out.println(" ");
+        System.out.println(" " + design[2] + "                " + design[2] + "                   " + design[5] + "                    " + design[5]);
+        System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
+        System.out.println("      " + price[4] + "                             " + price[5] + "                                 " + price[10] + "                                  " + price[11]);
+        System.out.println(" ");
     }
 }
 
@@ -84,6 +88,10 @@ class MonthlySpecials extends Catalog{
         System.out.println("      XS-L                         XL-3XL                           XS-L                              XL-3XL");
         System.out.println("      " + price[2] + "                        " + price[3] + "                            " + price[12] + "                             " + price[13]);
         System.out.println(" ");
+        System.out.println(" " + design[1] + "                " + design[1] + "                   " + design[6] + "                    " + design[6]);
+        System.out.println("      XS-L                         XL-3XL                           XS-L                              XL-3XL");
+        System.out.println("      " + price[2] + "                        " + price[3] + "                            " + price[12] + "                             " + price[13]);
+        System.out.println(" ");
     }
 }
 
@@ -101,6 +109,14 @@ class NormalPrices extends Catalog{
     }
     public void section() {
         System.out.println("Welcome to " +section + " Section");
+        System.out.println(" " + design[0] + "                " + design[0] + "                   " + design[3] + "                    " + design[3]);
+        System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
+        System.out.println("      " + price[0] + "                             " + price[1] + "                                 " + price[4] + "                                  " + price[5]);
+        System.out.println(" ");
+        System.out.println(" " + design[4] + "                " + design[4]);
+        System.out.println("      XS-L                              XL-3XL");
+        System.out.println("      " + price[8] + "                             " + price[9]);
+        System.out.println(" ");
         System.out.println(" " + design[0] + "                " + design[0] + "                   " + design[3] + "                    " + design[3]);
         System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
         System.out.println("      " + price[0] + "                             " + price[1] + "                                 " + price[4] + "                                  " + price[5]);
