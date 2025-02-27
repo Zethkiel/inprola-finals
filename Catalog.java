@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.time.LocalDate;
 import java.util.Date; //to know what the current date is
 
 public class Catalog {
@@ -19,6 +20,7 @@ public class Catalog {
     public Catalog(int m, int y) {
         month = m;
         year = y;
+        currentDate = LocalDate.now();
         currentMonth = currentDate.getMonthValue();
         currentYear = currentDate.getMonthValue();
     }
@@ -34,11 +36,14 @@ public class Catalog {
         //then 91.27%, then 88.53, then 85.87, then 6month old catalog has 83.3%
         //so when making a condition
         int catalogDate;
-        if (id > 202409) {
-            System.out.println("Priced ON-HAND");
+        if (id > 6) {
+            System.out.println("Priced on current");
         }
         else {
-            System.out.println("Priced according to catalog ON-HAND");
+            catalogPrices = 1 - (id * 0.03); 
+            totalPrice = 0
+            totalPrice += price * catalogPrices;
+            System.out.println("Priced on-hand");
 
         }
     }
