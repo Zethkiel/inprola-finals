@@ -28,7 +28,7 @@ public class Catalog {
     }
 
     public void catalogId(int id) {
-        //ichecheck mo kung more than 6 months ang agwat ng current date sa catalog date ng user  >6 uses the current catalog price
+        //ichecheck mo kung more than 6 months ang agwat ng current date sa catalog date ng user >6 uses the current catalog price
         //kapag within 6 ang catalog, magbabawas ang price ng bawat item by 3%
         //so 1month old catalog has 97% priced items, 2month old is 94.09%,
         //then 91.27%, then 88.53, then 85.87, then 6month old catalog has 83.3%
