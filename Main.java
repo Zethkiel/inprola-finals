@@ -2,7 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Clothing c = new Clothing();
+        /*order entry system
+         * if through catalog or online 
+         * details or user details
+         * order, csr/oec or online 'cart'
+         * or itemorder
+         * payment
+         * supplier
+         * shipping
+         */
+
+        Customer cus = new Customer();
+
+        
+        Clothing clo = new Clothing();
         Scanner s = new Scanner(System.in);
         Scanner t = new Scanner(System.in);
         Scanner u = new Scanner(System.in);

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.time.LocalDate; //gets the current date
+import java.util.Date; //to know what the current date is
 
 public class Catalog {
     private LocalDate currentDate;
@@ -38,14 +38,12 @@ public class Catalog {
             System.out.println("Priced ON-HAND");
         }
         else {
-            System.out.println("Priced CURRENT");
-            for (int i = 0; i < price.length; i++){
-                price[i] = Math.pow(0.97, id);
-            }
+            System.out.println("Priced according to catalog ON-HAND");
+
         }
     }
 }
-    class CloseOutItems extends Catalog{
+class CloseOutItems extends Catalog{
     public String section = "Close Out Items";
     public void catalogId(int id) {
 
