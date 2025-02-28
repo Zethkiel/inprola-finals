@@ -38,9 +38,9 @@ public class Catalog {
     public void catalogMonth(int catalogMonth, int catalogYear) {
         LocalDate catalogDate = LocalDate.of(catalogYear, catalogMonth,1);
         long checkDate = ChronoUnit.MONTHS.between(catalogDate, currentDate);
-        if (checkDate > 6) {
+        if (checkDate > 6) { //checks if the catalog used is 6 months older
 
-        } else {
+        } else { //has a 3% discount if the catalog is within 6 months
             double discount = 1 - (checkDate * 0.03);
             for (int i = 0; i < price.length; i++)
                 price[i] *= discount;
@@ -54,7 +54,7 @@ class CloseOutItems extends Catalog{
     public CloseOutItems() {
         super();
     }
-    public void catalogMonth(int catalogMonth, int catalogYear) {
+    public void catalogMonth(int catalogMonth, int catalogYear) { //override
         LocalDate catalogDate = LocalDate.of(catalogYear, catalogMonth,1);
         long checkDate = ChronoUnit.MONTHS.between(catalogDate, currentDate);
         if (checkDate > 6) {
@@ -65,9 +65,9 @@ class CloseOutItems extends Catalog{
                 price[i] *= discount;
         }
     }
-    public void section() {
+    public void section() { //displays the closeout section of the catalog; contains 2 products with prices depending on size range.
         catalogMonth(month, year);
-        System.out.println("Welcome to " + section + " Section");
+        System.out.println(" " + section + " Section");
         System.out.println(" " + design[2] + "                " + design[2] + "                   " + design[5] + "                    " + design[5]);
         System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
         System.out.println("      " + price[4] + "                             " + price[5] + "                                 " + price[10] + "                                  " + price[11]);
@@ -81,7 +81,7 @@ class MonthlySpecials extends Catalog{
     public MonthlySpecials() {
         super();
     }
-    public void catalogMonth(int catalogMonth, int catalogYear) {
+    public void catalogMonth(int catalogMonth, int catalogYear) { //override
         LocalDate catalogDate = LocalDate.of(catalogYear, catalogMonth,1);
         long checkDate = ChronoUnit.MONTHS.between(catalogDate, currentDate);
         if (checkDate > 6) {
@@ -92,9 +92,9 @@ class MonthlySpecials extends Catalog{
                 price[i] *= discount;
         }
     }
-    public void section() {
+    public void section() { //displays the monthly special section of the catalog; contains 2 products with prices depending on size range.
         catalogMonth(month, year);
-        System.out.println("Welcome to " + section + " Section");
+        System.out.println(" " + section + " Section");
         System.out.println(" " + design[1] + "                " + design[1] + "                   " + design[6] + "                    " + design[6]);
         System.out.println("      XS-L                         XL-3XL                           XS-L                              XL-3XL");
         System.out.println("      " + price[2] + "                        " + price[3] + "                            " + price[12] + "                             " + price[13]);
@@ -108,7 +108,7 @@ class NormalPrices extends Catalog{
     public NormalPrices() {
         super();
     }
-    public void catalogMonth(int catalogMonth, int catalogYear) {
+    public void catalogMonth(int catalogMonth, int catalogYear) { //override
         LocalDate catalogDate = LocalDate.of(catalogYear, catalogMonth,1);
         long checkDate = ChronoUnit.MONTHS.between(catalogDate, currentDate);
         if (checkDate > 6) {
@@ -119,9 +119,9 @@ class NormalPrices extends Catalog{
                 price[i] *= discount;
         }
     }
-    public void section() {
+    public void section() { //displays the monthly special section of the catalog; contains 3 products with prices depending on size range.
         catalogMonth(month, year);
-        System.out.println("Welcome to " + section + " Section");
+        System.out.println(" " + section + " Section");
         System.out.println(" " + design[0] + "                " + design[0] + "                   " + design[3] + "                    " + design[3]);
         System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
         System.out.println("      " + price[0] + "                             " + price[1] + "                                 " + price[4] + "                                  " + price[5]);
@@ -137,22 +137,22 @@ class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("CATALOG");
+        System.out.println("CATALOG"); //asks user to input catalog details: month and year
         System.out.println("Enter Month: ");
         int month = scanner.nextInt();
         System.out.println("Enter Year: ");
         int year = scanner.nextInt();
         System.out.println(" ");
 
-        Catalog catalog = new Catalog(month, year);
+        Catalog catalog = new Catalog(month, year); //displays user's catalog details
         catalog.setDetails();
         System.out.println("Catalog: " + catalog.getDetails());
 
 
         CloseOutItems closeOutItems = new CloseOutItems();
-        closeOutItems.month = month;
+        closeOutItems.month = month; //initialize values properly
         closeOutItems.year = year;
-        closeOutItems.section();
+        closeOutItems.section(); 
         System.out.println(" ");
 
         MonthlySpecials monthlySpecials = new MonthlySpecials();
