@@ -17,7 +17,7 @@ public class Staff implements Orderable {
         String response = scanner.nextLine();
 
         if (response.equalsIgnoreCase("yes")) {
-            System.out.println("Here is the order form.");
+            System.out.println("Here is the order form. Enter your order/s.");
         } else {
             System.out.println("Okay, have a great day!");
         }
