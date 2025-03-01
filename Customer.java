@@ -1,6 +1,13 @@
-import java.util.Scanner;
+//import java.util.Scanner;
 
-abstract class Person {
+public class Customer {
+    private String name
+    private String email
+    private String address
+    private String phoneNum
+    private String 
+}
+/*abstract class Person {
     private String name;
     private String email;
     private String address;
@@ -91,4 +98,4 @@ public class Main {
 
         scanner.close();
     }
-}
+}*/

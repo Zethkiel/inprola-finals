@@ -15,14 +15,13 @@ public class Main {
          Scanner s = new Scanner(System.in);
 
 
+
         System.out.println("Welcome to Direct Clothing Inc.'s Order Entry System.\nWhat would you like to do?\nEnter the corresponding number to complete a task.");
         System.out.println("""
                 \nEnter:
                 '1' to manage customer info
                 '2' to manage orders
                 '3' to manage inventory
-                '4' to verify payments
-                '5' to review shipping details
                 """);
         int a = s.nextInt();
 
@@ -32,32 +31,38 @@ public class Main {
                     '1' to add customer info
                     '2' to remove a customer
                     """);
+            int a1 = s.nextInt();
+            if (a1==1) {
+                
+            } else if (a1==2) {} else {
+                System.out.println("You entered an invalid number. Please try again.");
+            }
         } else if (a==2) {
             System.out.println("What would you like to do?");
             System.out.println("""
                     '1' to give out order forms to subscribers
                     '2' to add an order ticket to the system 
                     '3' to remove a completed ticket
-                    """;);
+                    '4' check the payment status of an order
+                    '5' check the shipping details of an order
+                    """);
+            int a2 = s.nextInt();
+            if (a2==1) {} else if (a2==2) {} else if (a2==3) {} else if (a2==4) {} else if (a2==5) {} else {
+                System.out.println("You entered an invalid number. Please try again.");
+            }
         } else if (a==3) {
             System.out.println("What would you like to do?");
             System.out.println("""
                     '1' check inventory levels
                     '2' add items to the inventory
                     '3' remove items from the inventory
-                    """;);
-        } else if (a==4) {
-            System.out.println("What would you like to do?");
-            System.out.println("""
-                    '1' check the payment status of an order
                     """);
-        } else if (a==5) {
-            System.out.println("What would you like to do?");
-            System.out.println("""
-                    '1' check the shipping details of an order 
-                    """);
+            int a3 = s.nextInt();
+            if (a3==1) {} else if (a3==2) {} else if (a3==3) {} else {
+                System.out.println("You entered an invalid number. Please try again.");
+            }
         } else {
-
+            System.out.println("You entered an invalid input. Please try again.");
         }
 
         Customer cus = new Customer();
