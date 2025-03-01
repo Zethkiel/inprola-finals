@@ -1,101 +1,43 @@
-//import java.util.Scanner;
-
-public class Customer {
-    private String name
-    private String email
-    private String address
-    private String phoneNum
-    private String 
-}
-/*abstract class Person {
+abstract class Customer {
     private String name;
     private String email;
     private String address;
+    private String phoneNum;
+    private String paymentInfo;
+    protected String[] userInfo;
+    
 
-    public Person(String name, String email, String address) {
+
+    public Customer(String name, String email, String address, String phoneNum, String paymentInfo) {
         this.name = name;
         this.email = email;
         this.address = address;
+        this.phoneNum = phoneNum;
+        this.paymentInfo = paymentInfo;
+        this.userInfo = new String[]{name, email, address, phoneNum, paymentInfo};
     }
 
-    public String getName() {
-        return name;
+    abstract String[] getUserInfo();
+}
+
+class Subscriber extends Customer {
+
+    Subscriber(String n, String e, String a, String p, String pInfo, String sub) {
+        super(n, e, a, p, pInfo);
+        this.userInfo = new String[]{n, e, a, p, pInfo, sub};
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    String[] getUserInfo() {
+        return userInfo;
     }
 }
 
-class Customer extends Person {
-    private int phone;
-    private String customerType;
-
-    public Customer(String name, String email, String address, int phone, String customerType) {
-        super(name, email, address);
-        this.phone = phone;
-        this.customerType = customerType;
+class OnlineUser extends Customer {
+    OnlineUser(String n, String e, String a, String p, String pInfo) {
+        super(n,e,a,p,pInfo);
     }
 
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public String getCustomerType() {
-        return customerType;
-    }
-
-    public void setCustomerType(String customerType) {
-        this.customerType = customerType;
+    String[] getUserInfo() {
+        return userInfo;
     }
 }
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter customer details:");
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-        System.out.print("Address: ");
-        String address = scanner.nextLine();
-        System.out.print("Phone: ");
-        int phone = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Customer Type: ");
-        String customerType = scanner.nextLine();
-
-        Customer customer = new Customer(name, email, address, phone, customerType);
-
-        System.out.println("\nCustomer Details:");
-        System.out.println("Name: " + customer.getName());
-        System.out.println("Email: " + customer.getEmail());
-        System.out.println("Address: " + customer.getAddress());
-        System.out.println("Phone: " + customer.getPhone());
-        System.out.println("Customer Type: " + customer.getCustomerType());
-
-        scanner.close();
-    }
-}*/

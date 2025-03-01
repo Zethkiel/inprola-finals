@@ -1,4 +1,4 @@
-public class ItemOrder {
+/*public class ItemOrder {
     private int orderId;
     private String itemDesc;
 
@@ -35,3 +35,24 @@ public class ItemOrder {
         }
     }
 }
+
+class Main1 {
+    public static void main(String[] args) {
+        // Create an array of ItemOrder objects
+        ItemOrder[] orders = new ItemOrder[3];
+
+        // Initialize the ItemOrder objects
+        orders[0] = new ItemOrder(1, "Laptop");
+        orders[1] = new ItemOrder(2, "Smartphone");
+        orders[2] = new ItemOrder(3, "Tablet");
+
+        // Display individual orders
+        for (ItemOrder order : orders) {
+            order.displayOrder();
+        }
+
+        // Display all orders using the static method
+        System.out.println("Displaying all orders:");
+        ItemOrder.displayAllOrders(orders);
+    }
+}*/
