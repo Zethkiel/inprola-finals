@@ -17,8 +17,8 @@ public class Collection {
         userCollection.put(counter, cus);
     }
 
-    public void addUser(int c, OrtedTaker iO) {
+    public void addUser(int c, OrderTaker oT) {
         counter += c;
-        orderCollection.put(counter, iO);
+        orderCollection.put(counter, oT);
     }
 }
