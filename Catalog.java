@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.Date; //to know what the current date is
+import java.util.LocalDate; //to know what the current date is
 
 public class Catalog {
     private LocalDate currentDate;

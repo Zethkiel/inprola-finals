@@ -12,6 +12,10 @@ public class Main {
          * shipping
          */
 
+
+
+        System.out.println("Welcome to Direct Clothing Inc.'s Order Entry System./nWhat would you like to do?/nEnter the corresponding number to complete a task.");
+
         Customer cus = new Customer();
 
         
