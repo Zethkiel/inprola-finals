@@ -3,22 +3,66 @@ import java.util.Map;
 
 public class Collection {
     private int counter;
-    private Map<Integer, Customer> userCollection;
-    private Map<Integer, OrderTaker> orderCollection;
+    private Map<Integer, OrderTaker> orderList;
+    private Map<Integer, Customer> userList;
 
     public Collection() {
-        this.orderCollection = new HashMap<>();
-        this.userCollection = new HashMap<>();
+        this.orderList = new HashMap<>();
+        this.userList = new HashMap<>();
         this.counter = 0;
     }
 
+    // add customer to the list
     public void addUser(int c, Customer cus) {
         counter += c;
-        userCollection.put(counter, cus);
+        userList.put(counter, cus);
     }
 
+    // order ticket
     public void addUser(int c, OrderTaker oT) {
         counter += c;
-        orderCollection.put(counter, oT);
+        orderList.put(counter, oT);
+    }
+
+    // remove a customer from the list
+    public void removeCustomer(int cusNumToRemove) {
+        userList.remove(cusNumToRemove);
+
+        // make a new hashmap to update the list
+        Map<Integer, Customer> newUserList = new HashMap<>();
+
+        // create a new hashmap to adjust the numbers of the customers
+        for (Map.Entry<Integer, Customer> entry : userList.entrySet()) {
+            int newKey = entry.getKey() > cusNumToRemove ? entry.getKey() - 1 : entry.getKey();
+            newUserList.put(newKey, entry.getValue());
+        }
+
+        userList = newUserList;
+    }
+
+    // remove an order ticket
+    public void removeOrder(int orderNumToRemove) {
+        userList.remove(orderNumToRemove);
+
+        // make a new hashmap to update the list
+        Map<Integer, OrderTaker> newOrderList = new HashMap<>();
+
+        // create a new hashmap to adjust the numbers corresponding the orders
+        for (Map.Entry<Integer, OrderTaker> entry : orderList.entrySet()) {
+            int newKey = entry.getKey() > orderNumToRemove ? entry.getKey() - 1 : entry.getKey();
+            newOrderList.put(newKey, entry.getValue());
+        }
+
+        orderList = newOrderList;
+    }
+
+    public void printUserList() {
+        System.out.println("Users:");
+        System.out.println(userList.toString());
+    }
+
+    public void printOrderList() {
+        System.out.println("Orders:");
+        System.out.println(orderList.toString());
     }
 }

@@ -46,7 +46,7 @@ public class Clothing {
                     System.out.println("Perform again? (y/n)"); //ask user if they want to still make changes for a certain design/size of the item stock
                     char choice = scanner.next().charAt(0);
 
-                    if (choice == 'n') { //goes to next design/size
+                    if (choice == 'y') { //goes to next design/size
                         System.out.println("Proceeding..."); 
                         break;
                     } else {
@@ -58,7 +58,7 @@ public class Clothing {
         }
     }
 }
-class main {
+class Main2 {
     public static void main(String[] args) {
         Clothing clo = new Clothing();
         clo.designAndSize();

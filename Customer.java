@@ -1,12 +1,10 @@
 abstract class Customer {
-    private String name;
-    private String email;
-    private String address;
-    private String phoneNum;
-    private String paymentInfo;
-    protected String[] userInfo;
-    
-
+    protected String name;
+    protected String email;
+    protected String address;
+    protected String phoneNum;
+    protected String paymentInfo;
+    protected String[] userInfo;    
 
     public Customer(String name, String email, String address, String phoneNum, String paymentInfo) {
         this.name = name;
@@ -17,18 +15,18 @@ abstract class Customer {
         this.userInfo = new String[]{name, email, address, phoneNum, paymentInfo};
     }
 
-    abstract String[] getUserInfo();
+    abstract void getUserInfo();
 }
 
 class Subscriber extends Customer {
 
-    Subscriber(String n, String e, String a, String p, String pInfo, String sub) {
+    Subscriber(String n, String e, String a, String p, String pInfo) {
         super(n, e, a, p, pInfo);
-        this.userInfo = new String[]{n, e, a, p, pInfo, sub};
+        this.userInfo = new String[]{n, e, a, p, pInfo};
     }
 
-    String[] getUserInfo() {
-        return userInfo;
+    void getUserInfo() {
+        System.out.printf("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment method: %s\n Customer type: subscriber", name, email, address, phoneNum, paymentInfo);
     }
 }
 
@@ -37,7 +35,8 @@ class OnlineUser extends Customer {
         super(n,e,a,p,pInfo);
     }
 
-    String[] getUserInfo() {
-        return userInfo;
+    void getUserInfo() {
+        System.out.printf("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment method: %s\n Customer type: online shopper", name, email, address, phoneNum, paymentInfo);
+
     }
 }

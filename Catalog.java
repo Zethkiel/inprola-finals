@@ -133,7 +133,7 @@ class NormalPrices extends Catalog{
         }
     }
 
-class Main {
+class Main3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
