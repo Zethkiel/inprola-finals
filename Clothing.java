@@ -12,7 +12,7 @@ public class Clothing {
         for (String design : designs) { //displays all designs
             items.put(design, new HashMap<>());//hashmap
             for (String size : sizes) {
-                items.get(design).put(size, 0);}}
+                items.get(design).put(size, 0);}} //keys and values of hashmap
     }
 
     public void designAndSize() {
@@ -73,11 +73,11 @@ public class Clothing {
                     scanner.next();
                 }
             }
-            System.out.println("Would you like to edit another item? (y/n)");
+            System.out.println("Would you like to edit another item? (y/n)"); //ask user if they want to edit stocks of other items
             char nextChoice = scanner.next().charAt(0);
 
             if (nextChoice == 'n') {
-                System.out.println("Would you like to go back to main? (y/n)");
+                System.out.println("Would you like to go back to main? (y/n)"); //ask user if they want to go back to main
                 char backMain = scanner.next().charAt(0);
 
                 if (backMain == 'y') {
@@ -96,7 +96,7 @@ public class Clothing {
         }
     }
     
-    public void listInventory() {
+    public void listInventory() { //method to check current/updated inventory
         Scanner scanner = new Scanner(System.in);
         for (String design : designs) {
             System.out.println(design);
@@ -106,7 +106,7 @@ public class Clothing {
 
             }
         }
-        System.out.println("Would you like to go back to main? (y/n)");
+        System.out.println("Would you like to go back to main? (y/n)"); //ask user if they want to go back to main
         char choice = scanner.next().charAt(0);
 
         if (choice == 'y') {
@@ -126,11 +126,11 @@ class Main2 {
         Clothing clo = new Clothing();
         Scanner scanner = new Scanner(System.in);
         while (true){
-            System.out.println("Welcome to Clothing! What would you like to do?");
+            System.out.println("Welcome to Clothing! What would you like to do?"); //ask user if they want to check or edit inventory
             System.out.println("""
                         Enter:
                         '1' to check inventory level
-                        '2' edit inventory level
+                        '2' to edit inventory level
                         """);
             int selectPerform = scanner.nextInt();
 
