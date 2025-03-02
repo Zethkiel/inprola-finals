@@ -12,7 +12,7 @@ public class Clothing {
         for (String design : designs) { //displays all designs
             items.put(design, new HashMap<>());//hashmap
             for (String size : sizes) {
-                items.get(design).put(size, 0);}} //keys and values of hashmap
+                items.get(design).put(size, 1000);}} //keys and values of hashmap
     }
 
     public void designAndSize() {
@@ -99,27 +99,3 @@ public class Clothing {
         }
         }
     }
-
-class Main2 {
-    public static void main(String[] args) {
-        Clothing clo = new Clothing();
-        Scanner scanner = new Scanner(System.in);
-        while (true){
-            System.out.println("Welcome to Clothing! What would you like to do?"); //ask user if they want to check or edit inventory
-            System.out.println("""
-                        Enter:
-                        '1' to check inventory level
-                        '2' to edit inventory level
-                        """);
-            int selectPerform = scanner.nextInt();
-
-            if (selectPerform == 1) {
-                clo.listInventory();
-            } else if (selectPerform == 2) {
-                clo.designAndSize();
-            } else {
-                System.out.println("Invalid");
-            }
-        }
-    }
-}

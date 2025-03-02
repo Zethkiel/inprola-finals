@@ -24,6 +24,14 @@ abstract class Customer {
     public String getName() {
         return name;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phoneNum;
+    }
 }
 
 class Subscriber extends Customer {
@@ -41,7 +49,7 @@ class Subscriber extends Customer {
 
     @Override
     public String toString() {
-        return "Subscriber: " + name + ", " + email + ", " + address + ", " + phoneNum;
+        return String.format("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nCustomer type: subscriber",name, email, address, phoneNum);
     }
 }
 
@@ -58,6 +66,7 @@ class OnlineUser extends Customer {
 
     @Override
     public String toString() {
-        return "Online User: " + name + ", " + email + ", " + address + ", " + phoneNum;
+        return String.format("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nCustomer type: online shopper",
+                name, email, address, phoneNum);
     }
 }

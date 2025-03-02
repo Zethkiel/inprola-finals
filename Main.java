@@ -18,6 +18,9 @@ public class Main {
         Collection col2 = new Collection();
         Clothing clo = new Clothing();
         Customer cus;
+        Customer cus1;
+        OrderTaker oT;
+
         while (true) {
             System.out.println(
                     "\nWelcome to Direct Clothing Inc.'s Order Entry System.\n\nWhat would you like to do?\n\nEnter the corresponding number to complete a task.");
@@ -147,9 +150,10 @@ public class Main {
                             '1' to give out order forms to subscribers
                             '2' to add an order ticket to the system
                             '3' to remove a completed ticket
-                            '4' change the payment status of an order
+                            '4' change the payment status of an order to paid
                             '5' change the shipping details of an order
-                            '6' to go back
+                            '6' to view the list of past orders
+                            '7' to go back
                             """);
                     String a2 = s.nextLine();
                     if (a2.equals("1")) {
@@ -178,10 +182,111 @@ public class Main {
                         }
 
                     } else if (a2.equals("2")) {
+                        while (true) {
+                            System.out.println("Who placed an order? Type the customers e-mail.");
+                            String email = s.nextLine();
+                            if (col1.findCus(email) instanceof Subscriber) {
+                                Subscriber user = (Subscriber) col1.findCus(email);
+                                String q = user.getName();
+                                String b = user.getEmail();
+                                String c = user.getAddress();
+                                String d = user.getPhone();
+                                cus1 = new Subscriber(q, b, c, d);
+                                System.out.println();
+                                System.out.println(
+                                        "What is the payment method used for this purchase? (cash, credit, e-wallet)");
+                                String meth = s.nextLine();
+                                if (meth.equalsIgnoreCase("cash") || meth.equalsIgnoreCase("credit")
+                                        || meth.equalsIgnoreCase("e-wallet")) {
+                                    oT = new OrderTaker(cus1, meth);
+                                    System.out.println("\nOrder details:");
+                                    System.out.println(oT.toString());
+                                    System.out.println("\n\nAre these info correct? y/n");
+                                    String correct = s.nextLine();
+                                    if (correct.equals("y")) {
+                                        col2.addUser(1, oT);
+                                        col2.addO(oT);
+                                        System.out.println("""
+                                                \nDo you want to add a new order? y/n
+                                                Be careful in inputting the command. You
+                                                will start over in entering the details
+                                                if you type in the wrong command.
+                                                """);
+                                        String ywant = s.nextLine();
+                                        if (ywant.equals("y")) {
+                                            continue;
+                                        } else if (ywant.equals("n")) {
+                                            break;
+                                        } else {
+                                            System.out.println("Invalid command. Try again.");
+                                            continue;
+                                        }
+                                    } else if (correct.equals("n")) {
+                                        System.out.println("Enter the customer info again.");
+                                    } else {
+                                        System.out.println("Invalid command. Try again");
+                                        continue;
+                                    }
+                                }
+                            } else if (col1.findCus(email) instanceof OnlineUser) {
+                                OnlineUser user = (OnlineUser) col1.findCus(email);
+                                String q = user.getName();
+                                String b = user.getEmail();
+                                String c = user.getAddress();
+                                String d = user.getPhone();
+                                cus1 = new OnlineUser(q, b, c, d);
+                                //
+                                System.out.println(
+                                        "What is the payment method used for this purchase? (cash, credit, e-wallet)");
+                                String meth = s.nextLine();
+                                if (meth.equalsIgnoreCase("cash") || meth.equalsIgnoreCase("credit")
+                                        || meth.equalsIgnoreCase("e-wallet")) {
+                                    oT = new OrderTaker(cus1, meth);
+                                    System.out.println("\nOrder details:");
+                                    System.out.println(oT.toString());
+                                    System.out.println("\n\nAre these info correct? y/n");
+                                    String correct = s.nextLine();
+                                    if (correct.equals("y")) {
+                                        col2.addUser(1, oT);
+                                        col2.addO(oT);
+                                        System.out.println("""
+                                                \nDo you want to add a new order? y/n
+                                                Be careful in inputting the command. You
+                                                will start over in entering the details
+                                                if you type in the wrong command.
+                                                """);
+                                        String ywant = s.nextLine();
+                                        if (ywant.equals("y")) {
+                                            continue;
+                                        } else if (ywant.equals("n")) {
+                                            break;
+                                        } else {
+                                            System.out.println("Invalid command. Try again.");
+                                            continue;
+                                        }
+                                    } else if (correct.equals("n")) {
+                                        System.out.println("Enter the customer info again.");
+                                    } else {
+                                        System.out.println("Invalid command. Try again");
+                                        continue;
+                                    }
+                                }
+                            } else {
+                                System.out.println(
+                                        "This e-mail is not recognized among the registered customers. Please try a different one.");
+                                continue;
+                            }
+                        }
                     } else if (a2.equals("3")) {
+                        col2.printOrderList();
+                        System.out.println("What order do you want to remove?\nType in the corresponding number.");
+                        int r = s.nextInt();
+                        col2.removeOrder(r);
                     } else if (a2.equals("4")) {
                     } else if (a2.equals("5")) {
                     } else if (a2.equals("6")) {
+                        col2.printOrderList();
+                    } else if (a2.equals("7")) {
                         break;
                     } else {
                         System.out.println("You entered an invalid number. Please try again.");
@@ -250,7 +355,6 @@ public class Main {
                         continue;
                     }
                     System.out.println("\nDo you want to go back to the inventory manager tab? y/n");
-                    s.nextLine();
                     String ye = s.nextLine();
                     if (ye.equals("y")) {
                         continue;

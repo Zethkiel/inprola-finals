@@ -43,24 +43,24 @@ public class Collection {
 
     public boolean findEmailInCus(String i) {
         for (Customer c : usList) {
-            if (c.getEmail().equals(i)) {
+            if (c.getEmail().equalsIgnoreCase(i)) {
                 return true;
             }
         } return false;
     }
-
+    
     public Customer findCus(String i) {
-        int q = 0;
-        while (q < usList.size()) {
-            if (findEmailInCus(i) == true) {
-                return usList.get(q);
-            } q++;
-        } return null;
+        for (Customer c : usList) {
+            if (c.getEmail().equalsIgnoreCase(i)) {
+                return c;
+            }
+        }
+        return null;
     }
 
     /*public boolean findO(String i) {
         for (OrderTaker c : orList) {
-            if (c.getEmail().equals("i")) {
+            if (c.getEmail().equals(i)) {
                 return true;
             }
         } return false;
@@ -73,10 +73,10 @@ public class Collection {
         userList.put(counter, cus);
     }
 
-    // order ticket
-    public void addUser(int c, OrderTaker oT) {
+    // order ticket (OVERLOAD)
+    public void addUser(int c, OrderTaker cus) {
         counter += c;
-        orderList.put(counter, oT);
+        orderList.put(counter, cus);
     }
 
     // remove a customer from the list
@@ -121,7 +121,7 @@ public class Collection {
     public void printOrderList() {
         System.out.println("\nOrders:");
         for (Map.Entry<Integer, OrderTaker> entry : orderList.entrySet()) {
-            System.out.println(entry.getKey() + ", " + entry.getValue());
+            System.out.println("\n==========" + entry.getKey() + "===========" + entry.getValue() + "\n\n------------------------------------------\n\n");
         }
     }
 }
