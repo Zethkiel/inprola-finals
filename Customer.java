@@ -17,6 +17,9 @@ abstract class Customer {
 
     abstract void getUserInfo();
     public abstract String toString();
+    public String getEmail() {
+        return email;
+    }
 }
 
 class Subscriber extends Customer {

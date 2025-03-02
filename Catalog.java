@@ -67,11 +67,13 @@ class CloseOutItems extends Catalog{
     }
     public void section() { //displays the closeout section of the catalog; contains 2 products with prices depending on size range.
         catalogMonth(month, year);
-        System.out.println(" " + section + " Section");
-        System.out.println(" " + design[2] + "                " + design[2] + "                   " + design[5] + "                    " + design[5]);
-        System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
-        System.out.println("      " + price[4] + "                             " + price[5] + "                                 " + price[10] + "                                  " + price[11]);
-        System.out.println(" ");
+        System.out.printf("""
+                %s Section:
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                """, section, design[2], price[4], design[2], price[5], design[5], price[10], design[5], price[11]);
         }
     }
 
@@ -94,11 +96,13 @@ class MonthlySpecials extends Catalog{
     }
     public void section() { //displays the monthly special section of the catalog; contains 2 products with prices depending on size range.
         catalogMonth(month, year);
-        System.out.println(" " + section + " Section");
-        System.out.println(" " + design[1] + "                " + design[1] + "                   " + design[6] + "                    " + design[6]);
-        System.out.println("      XS-L                         XL-3XL                           XS-L                              XL-3XL");
-        System.out.println("      " + price[2] + "                        " + price[3] + "                            " + price[12] + "                             " + price[13]);
-        System.out.println(" ");
+        System.out.printf("""
+                %s Section:
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                """, section, design[1], price[2], design[1], price[3], design[6], price[12], design[6], price[13]);
         }
     }
 
@@ -121,15 +125,15 @@ class NormalPrices extends Catalog{
     }
     public void section() { //displays the monthly special section of the catalog; contains 3 products with prices depending on size range.
         catalogMonth(month, year);
-        System.out.println(" " + section + " Section");
-        System.out.println(" " + design[0] + "                " + design[0] + "                   " + design[3] + "                    " + design[3]);
-        System.out.println("      XS-L                              XL-3XL                                XS-L                                   XL-3XL");
-        System.out.println("      " + price[0] + "                             " + price[1] + "                                 " + price[4] + "                                  " + price[5]);
-        System.out.println(" ");
-        System.out.println(" " + design[4] + "                " + design[4]);
-        System.out.println("      XS-L                              XL-3XL");
-        System.out.println("      " + price[8] + "                             " + price[9]);
-        System.out.println(" ");
+        System.out.printf("""
+                %s Section:
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                %s (XS-L) = %2f
+                %s (XL-3XL) = %2f
+                """, section, design[0], price[0], design[0], price[1], design[3], price[4], design[3], price[5], design[4], price[8], design[4], price[9]);
         }
     }
 
@@ -137,34 +141,34 @@ class Main3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("CATALOG"); //asks user to input catalog details: month and year
-        System.out.println("Enter Month: ");
+        //asks user to input catalog details: month and year
+        System.out.println("Find the pricelist of our items based on the date of the catalog."); 
+        System.out.print("Enter Month number: ");
         int month = scanner.nextInt();
-        System.out.println("Enter Year: ");
+        System.out.print("Enter Year number: ");
         int year = scanner.nextInt();
-        System.out.println(" ");
+        System.out.println("\n---------------------------------------------");
 
         Catalog catalog = new Catalog(month, year); //displays user's catalog details
         catalog.setDetails();
-        System.out.println("Catalog: " + catalog.getDetails());
-
+        System.out.println("\nCatalog date: " + catalog.getDetails() + "");
+        System.out.println("\n---------------------------------------------\n");
 
         CloseOutItems closeOutItems = new CloseOutItems();
         closeOutItems.month = month; //initialize values properly
         closeOutItems.year = year;
         closeOutItems.section(); 
-        System.out.println(" ");
+        System.out.println("---------------------------------------------");
 
         MonthlySpecials monthlySpecials = new MonthlySpecials();
         monthlySpecials.month = month;
         monthlySpecials.year = year;
         monthlySpecials.section();
-        System.out.println(" ");
+        System.out.println("---------------------------------------------");
 
         NormalPrices normalPrices = new NormalPrices();
         normalPrices.month = month;
         normalPrices.year = year;
         normalPrices.section();
-        System.out.println(" ");
     }
 }

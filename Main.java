@@ -15,6 +15,7 @@ public class Main {
 
         Scanner s = new Scanner(System.in);
         Collection col = new Collection();
+        Clothing clo = new Clothing();
 
         System.out.println(
                 "Welcome to Direct Clothing Inc.'s Order Entry System.\nWhat would you like to do?\nEnter the corresponding number to complete a task.");
@@ -134,6 +135,7 @@ public class Main {
                 }
             }
         } else if (a == 2) {
+            while (true) {
             System.out.println("What would you like to do?");
             System.out.println("""
                     '1' to give out order forms to subscribers
@@ -151,21 +153,68 @@ public class Main {
             } else {
                 System.out.println("You entered an invalid number. Please try again.");
             }
+            System.out.println("\nDo you want to go back to customer info manager? y/n");
+                String ye = s.nextLine();
+                if (ye.equals("y")) {
+                    continue;
+                } else if (ye.equals("n")) {
+                    break;
+                } else {
+                    System.out.println("\nInvalid input. Going back to user info manager.");
+                }}
         } else if (a == 3) {
+            while (true) {
             System.out.println("What would you like to do?");
             System.out.println("""
                     '1' check inventory levels
-                    '2' add items to the inventory
-                    '3' remove items from the inventory
-                    '4' check the prices for customer's catalog
+                    '2' manage inventory levels
+                    '3' check the prices based on catalog's date
                     """);
             int a3 = s.nextInt();
             if (a3 == 1) {
             } else if (a3 == 2) {
+                clo.designAndSize();
             } else if (a3 == 3) {
+                System.out.println("Find the pricelist of our items based on the date of the catalog."); 
+                System.out.print("Enter Month number: ");
+                int month = s.nextInt();
+                System.out.print("Enter Year number: ");
+                int year = s.nextInt();
+                System.out.println("\n---------------------------------------------");
+        
+                Catalog catalog = new Catalog(month, year); //displays user's catalog details
+                catalog.setDetails();
+                System.out.println("\nCatalog date: " + catalog.getDetails() + "");
+                System.out.println("\n---------------------------------------------\n");
+        
+                CloseOutItems closeOutItems = new CloseOutItems();
+                closeOutItems.month = month; //initialize values properly
+                closeOutItems.year = year;
+                closeOutItems.section(); 
+                System.out.println("---------------------------------------------");
+        
+                MonthlySpecials monthlySpecials = new MonthlySpecials();
+                monthlySpecials.month = month;
+                monthlySpecials.year = year;
+                monthlySpecials.section();
+                System.out.println("---------------------------------------------");
+        
+                NormalPrices normalPrices = new NormalPrices();
+                normalPrices.month = month;
+                normalPrices.year = year;
+                normalPrices.section();
             } else {
                 System.out.println("You entered an invalid number. Please try again.");
             }
+            System.out.println("\nDo you want to go back to customer info manager? y/n");
+                String ye = s.nextLine();
+                if (ye.equals("y")) {
+                    continue;
+                } else if (ye.equals("n")) {
+                    break;
+                } else {
+                    System.out.println("\nInvalid input. Going back to user info manager.");
+                }}
         } else {
             System.out.println("You entered an invalid input. Please try again.");
         }
