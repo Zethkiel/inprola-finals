@@ -7,53 +7,69 @@ public class Clothing {
             "Dark Green Cargo Pants", "Blue Polo Shirt", "Indigo Long Sleeve", "Long Violet Skirt"};
     private final String[] sizes = {"XS", "S", "M", "L", "XL", "2XL", "3XL"};
 
-    public Clothing() {
-    }
+    public Clothing() {}
 
     public void designAndSize() {
-        HashMap<String, Integer> items = new HashMap<>();
+        HashMap<String, HashMap<String, Integer>> items = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
 
-        for (String design : designs) { //loop to display all designs at a time
-            items.put(design, 0); } //initialize hashmap
-        for (String design : designs) {
-            for (String size : sizes) { //loop to display all sizes for each design
-                while (true) {
-                    System.out.println(size + " " + design); //ask user if they want to add or subtract stocks
-                    System.out.println("""
-                            '1' to add
-                            '2' to subtract
-                            """);
-                    int select = scanner.nextInt();
-                    int valueR = items.get(design);
+        for (String design : designs) { //displays all designs
+            items.put(design, new HashMap<>());
+        for (String size : sizes) { //displays sizes
+            items.get(design).put(size, 0);}} //
 
-                    if (select == 1) {
-                        System.out.print(size + " ");
-                        System.out.println("Enter amount to be added:");
-                        int addValue = scanner.nextInt();
-                        items.put(design, valueR + addValue); //updates hashmap so input can be added
-                        System.out.println(design + " = " + (items.get(design)));
-                    } else if (select == 2) {
-                        System.out.println("Enter amount to be subtracted:");
-                        int subValue = scanner.nextInt();
-                        items.put(design, valueR - subValue); //updates hashmap so input can be subtracted
-                        System.out.println(design + " = " + (items.get(design)));
-                    } else {
-                        System.out.println("Invalid");
-                        continue;
-                    }
+        while (true) {
+            System.out.println("Enter a design to edit: "); //ask user for design
+            for (int i = 0; i < designs.length; i++) {
+                System.out.println(("'" + (i + 1) + "'") + " " + designs[i]);}
+            int selectDesign = scanner.nextInt();
+            if (selectDesign < 1 && selectDesign > designs.length) {
+                System.out.println("Invalid. Please try again");
+                continue;}
+            String selectedDesign = designs[selectDesign - 1];
 
-                    System.out.println("Perform again? (y/n)"); //ask user if they want to still make changes for a certain design/size of the item stock
-                    char choice = scanner.next().charAt(0);
+            System.out.println("Enter a size to edit: "); //ask user for size
+            for (int i = 0; i < sizes.length; i++) {
+                System.out.println(("'" + (i + 1) + "'") + " " + sizes[i] + " " + selectedDesign);}
+            int selectSize = scanner.nextInt();
+            if (selectSize < 1 && selectSize > sizes.length) {
+                System.out.println("Invalid. Please try again");
+                continue;}
+            String selectedSize = sizes[selectSize - 1];
 
-                    if (choice == 'y') { //goes to next design/size
-                        System.out.println("Proceeding..."); 
-                        break;
-                    } else {
-                        System.out.println("Invalid. Please try again");
-                        scanner.next();
-                    }
+            while (true) { //ask user if they want to add or subtract stocks
+                System.out.println(selectedSize + " " + selectedDesign);
+                System.out.println("""
+                        '1' to add
+                        '2' to subtract
+                        """);
+                int selectOperation = scanner.nextInt();
+                int value = items.get(selectedDesign).get(selectedSize);
+
+                if (selectOperation == 1) {
+                    System.out.println("Enter amount to be added:");
+                    int addValue = scanner.nextInt();
+                    items.get(selectedDesign).put(selectedSize, value + addValue); //updates hashmap so input can be added
+                    System.out.println(selectedDesign + " = " + (items.get(selectedDesign).get(selectedSize)));
+                } else if (selectOperation == 2) {
+                    System.out.println("Enter amount to be subtracted:");
+                    int subValue = scanner.nextInt();
+                    items.get(selectedDesign).put(selectedSize, value - subValue); //updates hashmap so input can be subtracted
+                    System.out.println(selectedSize + " "+ selectedDesign + " = " + (items.get(selectedDesign).get(selectedSize)));
+                } else {
+                    System.out.println("Invalid");
+                    continue;
                 }
+
+                System.out.println("Perform with " + selectedSize + " "+ selectedDesign + " again? (y/n)"); //ask user if they want to still make changes for a certain design and size of the item stock
+                char choice = scanner.next().charAt(0);
+
+                if (choice == 'n') { //if not, goes back to the start (asking for design and size)
+                    System.out.println("Proceeding...");
+                    break;
+                } else if (choice != 'y') {
+                    System.out.println("Invalid. Please try again");
+                    scanner.next();}
             }
         }
     }
