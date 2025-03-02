@@ -3,16 +3,14 @@ abstract class Customer {
     protected String email;
     protected String address;
     protected String phoneNum;
-    protected String paymentStatus;
     protected String[] userInfo;
 
-    public Customer(String name, String email, String address, String phoneNum, String paymentStatus) {
+    public Customer(String name, String email, String address, String phoneNum) {
         this.name = name;
         this.email = email;
         this.address = address;
         this.phoneNum = phoneNum;
-        this.paymentStatus = paymentStatus;
-        this.userInfo = new String[] { name, email, address, phoneNum, paymentStatus};
+        this.userInfo = new String[] { name, email, address, phoneNum};
     }
 
     abstract void getUserInfo();
@@ -30,36 +28,36 @@ abstract class Customer {
 
 class Subscriber extends Customer {
 
-    Subscriber(String n, String e, String a, String p, String pStatus) {
-        super(n, e, a, p, pStatus);
-        this.userInfo = new String[] { n, e, a, p, pStatus};
+    Subscriber(String n, String e, String a, String p) {
+        super(n, e, a, p);
+        this.userInfo = new String[] { n, e, a, p};
     }
 
     void getUserInfo() {
         System.out.printf(
-                "Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment status: %s\nCustomer type: subscriber",
-                name, email, address, phoneNum, paymentStatus);
+                "Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nCustomer type: subscriber",
+                name, email, address, phoneNum);
     }
 
     @Override
     public String toString() {
-        return "Subscriber: " + name + ", " + email + ", " + address + ", " + phoneNum + ", " + paymentStatus;
+        return "Subscriber: " + name + ", " + email + ", " + address + ", " + phoneNum;
     }
 }
 
 class OnlineUser extends Customer {
-    OnlineUser(String n, String e, String a, String p, String pStatus) {
-        super(n, e, a, p, pStatus);
+    OnlineUser(String n, String e, String a, String p) {
+        super(n, e, a, p);
     }
 
     void getUserInfo() {
         System.out.printf(
-                "Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment status: %s\nCustomer type: online shopper",
-                name, email, address, phoneNum, paymentStatus);
+                "Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nCustomer type: online shopper",
+                name, email, address, phoneNum);
     }
 
     @Override
     public String toString() {
-        return "Online User: " + name + ", " + email + ", " + address + ", " + phoneNum + ", " + paymentStatus;
+        return "Online User: " + name + ", " + email + ", " + address + ", " + phoneNum;
     }
 }

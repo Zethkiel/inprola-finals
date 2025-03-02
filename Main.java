@@ -51,12 +51,10 @@ public class Main {
                             String address = s.nextLine();
                             System.out.print("Phone number: ");
                             String phonum = s.nextLine();
-                            System.out.print("Payment status (paid, pending): ");
-                            String paid = s.nextLine();
                             System.out.println("\nIs " + name + " a subscriber? y/n ");
                             String subOrNo = s.nextLine();
                             if (subOrNo.equals("y")) {
-                                cus = new Subscriber(name, email, address, phonum, paid);
+                                cus = new Subscriber(name, email, address, phonum);
                                 System.out.println("\nUser details:");
                                 cus.getUserInfo();
                                 System.out.println("\n\nAre these info correct? y/n");
@@ -86,7 +84,7 @@ public class Main {
                                     continue;
                                 }
                             } else if (subOrNo.equals("n")) {
-                                cus = new OnlineUser(name, email, address, phonum, paid);
+                                cus = new OnlineUser(name, email, address, phonum);
                                 System.out.println("\nUser details:");
                                 cus.getUserInfo();
                                 System.out.println("\n\nAre these info correct? y/n");
@@ -149,8 +147,8 @@ public class Main {
                             '1' to give out order forms to subscribers
                             '2' to add an order ticket to the system
                             '3' to remove a completed ticket
-                            '4' check the payment status of an order
-                            '5' check the shipping details of an order
+                            '4' change the payment status of an order
+                            '5' change the shipping details of an order
                             '6' to go back
                             """);
                     String a2 = s.nextLine();
@@ -165,7 +163,7 @@ public class Main {
                                                 + " a form.");
                             } else {
 
-                                System.out.println("There's no cuustomer with this email-address.");
+                                System.out.println("There's no customer with this email-address.");
                                 System.out.println("Do you want to find another e-mail? y/n");
                                 String p = s.nextLine();
                                 if (p.equals("y")) {
