@@ -14,6 +14,7 @@ public class Main {
          */
 
         Scanner s = new Scanner(System.in);
+        Collection col = new Collection();
 
         System.out.println(
                 "Welcome to Direct Clothing Inc.'s Order Entry System.\nWhat would you like to do?\nEnter the corresponding number to complete a task.");
@@ -26,91 +27,111 @@ public class Main {
         int a = s.nextInt();
 
         if (a == 1) {
-            System.out.println("\nWhat would you like to do?");
-            System.out.println("""
-                    '1' to add customer info
-                    '2' to remove a customer
-                    """);
-            int a1 = s.nextInt();
-            s.nextLine();
-            if (a1 == 1) {
-                while (true) {
-                System.out.println("\nEnter the following customer info.");
-                System.out.print("Full Name: ");
-                String name = s.nextLine();
-                System.out.print("Email address: ");
-                String email = s.nextLine();
-                System.out.print("Shipping address: ");
-                String address = s.nextLine();
-                System.out.print("Phone number: ");
-                String phonum = s.nextLine();
-                System.out.print("Mode of payment: ");
-                String payment = s.nextLine();
-                System.out.println("Is " + name + " a subscriber? y/n ");
-                String subOrNo = s.nextLine();
-                if (subOrNo.equals("y")) {
-                    Customer cus = new Subscriber(name, email, address, phonum, payment);
-                    System.out.println("User details:");
-                    cus.getUserInfo();
-                    System.out.println("\nAre these info correct? y/n");
-                    if (s.nextLine().equals("y")) {
-                        Collection col = new Collection();
-                        col.addUser(1, cus);
-                            System.out.println("""
-                                    \nDo you want to add another customer? y/n
-                                    Be careful in inputting the command. You 
-                                    will start over in entering the customer details
-                                    if you type in the wrong command.
-                                    """);
-                            if (s.nextLine().equals("y")) {
-                                continue;
-                            } else if (s.nextLine().equals("n")) {
-                                break;
-                            } else {
-                                System.out.println("Invalid command. Try again.");
-                                continue;
-                            }
-                    } else if (s.nextLine().equals("n")) {
-                        System.out.println("Enter the customer info again.");
-                    } else {
-                        System.out.println("Invalid command. Try again");
-                        continue;
-                    }
-                } else if ((subOrNo.equals("n"))) {
-                    if (subOrNo.equals("y")) {
-                        Customer cus = new OnlineUser(name, email, address, phonum, payment);
-                        System.out.println("User details:");
-                        cus.getUserInfo();
-                        System.out.println("\nAre these info correct? y/n");
-                        if (s.nextLine().equals("y")) {
-                            Collection col = new Collection();
-                            col.addUser(1, cus);
+            while (true) {
+                System.out.println("\nWhat would you like to do?");
+                System.out.println("""
+                        '1' to add customer info
+                        '2' to remove a customer
+                        '3' to view customer list
+                        """);
+                int a1 = s.nextInt();
+                s.nextLine();
+                if (a1 == 1) {
+                    while (true) {
+                        System.out.println("\nEnter the following customer info.");
+                        System.out.print("Full Name: ");
+                        String name = s.nextLine();
+                        System.out.print("Email address: ");
+                        String email = s.nextLine();
+                        System.out.print("Shipping address: ");
+                        String address = s.nextLine();
+                        System.out.print("Phone number: ");
+                        String phonum = s.nextLine();
+                        System.out.print("Mode of payment: ");
+                        String payment = s.nextLine();
+                        System.out.println("\nIs " + name + " a subscriber? y/n ");
+                        String subOrNo = s.nextLine();
+                        if (subOrNo.equals("y")) {
+                            Customer cus = new Subscriber(name, email, address, phonum, payment);
+                            System.out.println("\nUser details:");
+                            cus.getUserInfo();
+                            System.out.println("\n\nAre these info correct? y/n");
+                            String correct = s.nextLine();
+                            if (correct.equals("y")) {
+                                col.addUser(1, cus);
                                 System.out.println("""
                                         \nDo you want to add another customer? y/n
-                                        Be careful in inputting the command. You 
+                                        Be careful in inputting the command. You
                                         will start over in entering the customer details
                                         if you type in the wrong command.
                                         """);
-                                if (s.nextLine().equals("y")) {
+                                        String ywant = s.nextLine();
+                                if (ywant.equals("y")) {
                                     continue;
-                                } else if (s.nextLine().equals("n")) {
+                                } else if (ywant.equals("n")) {
                                     break;
                                 } else {
                                     System.out.println("Invalid command. Try again.");
                                     continue;
                                 }
-                        } else if (s.nextLine().equals("n")) {
-                            System.out.println("Enter the customer info again.");
+                            } else if (correct.equals("n")) {
+                                System.out.println("Enter the customer info again.");
+                            } else {
+                                System.out.println("Invalid command. Try again");
+                                continue;
+                            }
+                        } else if (subOrNo.equals("n")) {
+                            Customer cus = new OnlineUser(name, email, address, phonum, payment);
+                            System.out.println("\nUser details:");
+                            cus.getUserInfo();
+                            System.out.println("\n\nAre these info correct? y/n");
+                            String correct = s.nextLine();
+                            if (correct.equals("y")) {
+                                col.addUser(1, cus);
+                                System.out.println("""
+                                        \nDo you want to add another customer? y/n
+                                        Be careful in inputting the command. You
+                                        will start over in entering the customer details
+                                        if you type in the wrong command.
+                                        """);
+                                String ywant = s.nextLine();
+                                if (ywant.equals("y")) {
+                                    continue;
+                                } else if (ywant.equals("n")) {
+                                    break;
+                                } else {
+                                    System.out.println("Invalid command. Try again.");
+                                    continue;
+                                }
+                            } else if (correct.equals("n")) {
+                                System.out.println("Enter the customer info again.");
+                            } else {
+                                System.out.println("Invalid command. Try again");
+                                continue;
+                            }
                         } else {
-                            System.out.println("Invalid command. Try again");
+                            System.out.println(subOrNo + "is an invalid input. Start over.");
                             continue;
                         }
                     }
+                } else if (a1 == 2) {
+                    col.printUserList();
+                    System.out.println("What user do you want to remove?\nType in the corresponding number.");
+                    col.removeCustomer(s.nextInt());
+                } else if (a1 == 3) {
+                    col.printUserList();
+                } else {
+                    System.out.println("You entered an invalid number. Please try again.");
                 }
-            }
-            } else if (a1 == 2) {
-            } else {
-                System.out.println("You entered an invalid number. Please try again.");
+                System.out.println("\nDo you want to go back to customer info manager? y/n");
+                String ye = s.nextLine();
+                if (ye.equals("y")) {
+                    continue;
+                } else if (ye.equals("n")) {
+                    break;
+                } else {
+                    System.out.println("\nInvalid input. Going back to user info manager.");
+                }
             }
         } else if (a == 2) {
             System.out.println("What would you like to do?");
@@ -150,79 +171,3 @@ public class Main {
         }
     }
 }
-
-/*
- * Customer cus = new Customer();
- * 
- * 
- * Clothing clo = new Clothing();
- * Scanner s = new Scanner(System.in);
- * Scanner t = new Scanner(System.in);
- * Scanner u = new Scanner(System.in);
- * Scanner v = new Scanner(System.in);
- * 
- * while (true) {
- * System.out.println("""
- * Clothing design? Type:
- * '1' for Plain Red T-shirt
- * '2' for Orange Jacket
- * '3' for Light Yellow Dress
- * '4' for Dark Green Cargo Pants
- * '5' for Blue Polo Shirt
- * '6' for Indigo Long Sleeve
- * '7' for Long Violet Skirt
- * """);
- * 
- * int type = s.nextInt();
- * 
- * if (type < 1 || type > 7) {
- * System.out.println(c.checkClothing(type, 0));
- * break;
- * }
- * 
- * System.out.println("""
- * 
- * Cloth size? Type:
- * '1' for XS
- * '2' for S
- * '3' for M
- * '4' for L
- * '5' for XL
- * '6' for 2XL
- * '7' for 3XL
- * """);
- * 
- * int size = t.nextInt();
- * 
- * if (size < 1 || size > 7) {
- * System.out.println(c.checkClothing(type, size));
- * break;
- * }
- * 
- * System.out.println("\nHow many of " + c.checkClothing(type, size) +
- * " would you like to buy?\n");
- * int amt = u.nextInt();
- * c.itemCount(amt);
- * 
- * System.out.println("");
- * System.out.println(c.toString());
- * System.out.println("\n---------------------");
- * System.out.println("---------------------");
- * System.out.println("---------------------");
- * 
- * System.out.println("\nDo you want to add another order? y/n");
- * String yn = v.nextLine();
- * if (yn.equals("n")) {
- * break;
- * } else {
- * System.out.println("");
- * continue;
- * }
- * }
- * s.close();
- * t.close();
- * u.close();
- * v.close();
- * }
- * }
- */

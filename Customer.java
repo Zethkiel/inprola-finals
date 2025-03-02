@@ -16,6 +16,7 @@ abstract class Customer {
     }
 
     abstract void getUserInfo();
+    public abstract String toString();
 }
 
 class Subscriber extends Customer {
@@ -26,7 +27,12 @@ class Subscriber extends Customer {
     }
 
     void getUserInfo() {
-        System.out.printf("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment method: %s\n Customer type: subscriber", name, email, address, phoneNum, paymentInfo);
+        System.out.printf("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment method: %s\nCustomer type: subscriber", name, email, address, phoneNum, paymentInfo);
+    }
+
+    @Override
+    public String toString() {
+        return "Subscriber: " + name + ", " + email + ", " + address + ", " + phoneNum + ", " + paymentInfo;
     }
 }
 
@@ -36,7 +42,11 @@ class OnlineUser extends Customer {
     }
 
     void getUserInfo() {
-        System.out.printf("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment method: %s\n Customer type: online shopper", name, email, address, phoneNum, paymentInfo);
+        System.out.printf("Name: %s\nEmail address: %s\nShipping address: %s\nPhone number: %s\nPayment method: %s\nCustomer type: online shopper", name, email, address, phoneNum, paymentInfo);
+    }
 
+    @Override
+    public String toString() {
+        return "Online User: " + name + ", " + email + ", " + address + ", " + phoneNum + ", " + paymentInfo;
     }
 }

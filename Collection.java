@@ -57,12 +57,16 @@ public class Collection {
     }
 
     public void printUserList() {
-        System.out.println("Users:");
-        System.out.println(userList.toString());
+        System.out.println("\nUsers:");
+        for (Map.Entry<Integer, Customer> entry : userList.entrySet()) {
+            System.out.println(entry.getKey() + ", " + entry.getValue());
+        }
     }
 
     public void printOrderList() {
-        System.out.println("Orders:");
-        System.out.println(orderList.toString());
+        System.out.println("\nOrders:");
+        for (Map.Entry<Integer, OrderTaker> entry : orderList.entrySet()) {
+            System.out.println(entry.getKey() + ", " + entry.getValue());
+        }
     }
 }
