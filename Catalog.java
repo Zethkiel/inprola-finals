@@ -1,12 +1,8 @@
 import java.time.temporal.ChronoUnit;
-import java.util.Scanner;
 import java.time.LocalDate;
-import java.util.Date; //to know what the current date is
 
 public class Catalog {
     public LocalDate currentDate;
-    private int currentMonth;
-    private int currentYear;
     public int month;
     public int year;
     private String id;
@@ -16,8 +12,6 @@ public class Catalog {
 
     public Catalog() {
         currentDate = LocalDate.now();
-        currentMonth = currentDate.getMonthValue();
-        currentYear = currentDate.getYear();
     }
 
     public Catalog(int m, int y) {
@@ -136,39 +130,3 @@ class NormalPrices extends Catalog{
                 """, section, design[0], price[0], design[0], price[1], design[3], price[4], design[3], price[5], design[4], price[8], design[4], price[9]);
         }
     }
-
-class Main3 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        //asks user to input catalog details: month and year
-        System.out.println("Find the pricelist of our items based on the date of the catalog."); 
-        System.out.print("Enter Month number: ");
-        int month = scanner.nextInt();
-        System.out.print("Enter Year number: ");
-        int year = scanner.nextInt();
-        System.out.println("\n---------------------------------------------");
-
-        Catalog catalog = new Catalog(month, year); //displays user's catalog details
-        catalog.setDetails();
-        System.out.println("\nCatalog date: " + catalog.getDetails() + "");
-        System.out.println("\n---------------------------------------------\n");
-
-        CloseOutItems closeOutItems = new CloseOutItems();
-        closeOutItems.month = month; //initialize values properly
-        closeOutItems.year = year;
-        closeOutItems.section(); 
-        System.out.println("---------------------------------------------");
-
-        MonthlySpecials monthlySpecials = new MonthlySpecials();
-        monthlySpecials.month = month;
-        monthlySpecials.year = year;
-        monthlySpecials.section();
-        System.out.println("---------------------------------------------");
-
-        NormalPrices normalPrices = new NormalPrices();
-        normalPrices.month = month;
-        normalPrices.year = year;
-        normalPrices.section();
-    }
-}

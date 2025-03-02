@@ -1,16 +1,71 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class Collection {
     private int counter;
     private Map<Integer, OrderTaker> orderList;
     private Map<Integer, Customer> userList;
+    private ArrayList<Customer> usList;
+    private ArrayList<OrderTaker> orList;
+
 
     public Collection() {
         this.orderList = new HashMap<>();
         this.userList = new HashMap<>();
-        this.counter = 0;
+        this.usList = new ArrayList<>();
+        this.orList = new ArrayList<>();
     }
+
+    public ArrayList<Customer> getU() {
+        return usList;
+    }
+
+    public ArrayList<OrderTaker> getO() {
+        return orList;
+    }
+
+    public void addU(Customer i) {
+        usList.add(i);
+    }
+
+    public void addO(OrderTaker i) {
+        orList.add(i);
+    }
+
+    public void rmU(Customer i) {
+        usList.remove(i);
+    }
+
+    public void rmO(OrderTaker i) {
+        orList.remove(i);
+    }
+
+    public boolean findEmailInCus(String i) {
+        for (Customer c : usList) {
+            if (c.getEmail().equals(i)) {
+                return true;
+            }
+        } return false;
+    }
+
+    public Customer findCus(String i) {
+        int q = 0;
+        while (q < usList.size()) {
+            if (findEmailInCus(i) == true) {
+                return usList.get(q);
+            } q++;
+        } return null;
+    }
+
+    /*public boolean findO(String i) {
+        for (OrderTaker c : orList) {
+            if (c.getEmail().equals("i")) {
+                return true;
+            }
+        } return false;
+    }*/
+
 
     // add customer to the list
     public void addUser(int c, Customer cus) {
@@ -70,3 +125,4 @@ public class Collection {
         }
     }
 }
+
