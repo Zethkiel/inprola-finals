@@ -126,7 +126,6 @@ public class Main {
                         System.out.println("What user do you want to remove?\nType in the corresponding number.");
                         int qw = s.nextInt();
                         col1.removeCustomer(qw);
-                        col1.rmU(qw);
                     } else if (a1.equals("3")) {
                         col1.printUserList();
                     } else if (a1.equals("4")) {
@@ -284,6 +283,7 @@ public class Main {
                         System.out.println("\nWhat order do you want to remove?\nType in the corresponding number.");
                         int r = s.nextInt();
                         col2.removeOrder(r);
+                        s.nextLine();
                     } else if (a2.equals("4")) {
                         System.out.println("\nWhat order do you want to mark as paid? Enter the order number.\n");
                         col2.printOrderList();

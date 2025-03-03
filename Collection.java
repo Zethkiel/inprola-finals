@@ -23,14 +23,6 @@ public class Collection {
     public void addO(OrderTaker i) {
         orList.add(i);
     }
-
-
-    public void rmU(int i) {
-        if (orList.contains(orList.get(i))) {
-            
-        }
-    }
-
     public void rmO(int i) {
         orList.remove(i);
     }
