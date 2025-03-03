@@ -256,18 +256,18 @@ public class Main {
                                 cus1 = new Subscriber(q, b, c, d);
                                 System.out.println("\nWhat items did this customer buy?");
                                 clo = new Clothing();
-                                System.out.println("\nWhat design for this order? type in the number");
+                                System.out.println("\nWhat design for this order? type in the name");
                                 clo.printDesigns();
                                 int des = s.nextInt();
-                                System.out.println("\nWhat size for " + des + "? type in the number");
                                 s.nextLine();
+                                System.out.println("\nWhat is the size for this clothing? type in the number");
                                 clo.printSizes();
                                 int siz = s.nextInt();
-                                System.out.println("\nHow many for " + des + ", (" + siz + ") ? type in the number");
                                 s.nextLine();
+                                System.out.println("\nHow many for items for this order? type in the number");
                                 int quan = s.nextInt();
-                                String desize = String.valueOf(quan) + " " + siz + " " + des;
-                                s.nextInt();
+                                s.nextLine();
+                                String desize = String.valueOf(quan) + " " + clo.size(siz) + " " + clo.design(des);
                                 System.out.println(
                                         "/nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
@@ -319,8 +319,9 @@ public class Main {
                         col2.printOrderList();
                         System.out.println("What order will you mark as paid? Type in the corresponding number.");
                         int yq = s.nextInt();
-                        if (col1.findO(yq) != null) {
-                            col1.findO(yq).setPending("paid");
+                        if (col2.findO(yq) != null) {
+                            col2.findO(yq).setPending("paid");
+                            s.nextLine();
                         }
                     } else if (a2.equals("5")) {
                         System.out.println("What order would you like to ship out?");

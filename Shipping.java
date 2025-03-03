@@ -12,9 +12,9 @@ public class Shipping {
             OrderTaker order = collection.findO(orderId);
             if (order != null) {
                 if ("paid".equalsIgnoreCase(order.getPending())) {
-                    return "The order has been shipped.";
+                    return "This order has been shipped.";
                 } else {
-                    return "The order has not been paid.";
+                    return "Order #" + orderId + " has not been paid.";
                 }
             }
         }
