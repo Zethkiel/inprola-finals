@@ -264,6 +264,7 @@ public class Main {
                                 s.nextLine();
                                 int quan = s.nextInt();
                                 String desize = String.valueOf(quan) + " " + siz + " " + des;
+                                s.nextInt();
                                 System.out.println(
                                         "/nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
