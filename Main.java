@@ -126,6 +126,7 @@ public class Main {
                         System.out.println("What user do you want to remove?\nType in the corresponding number.");
                         int qw = s.nextInt();
                         col1.removeCustomer(qw);
+                        s.nextLine();
                     } else if (a1.equals("3")) {
                         col1.printUserList();
                         
@@ -197,7 +198,7 @@ public class Main {
                                 cus1 = new Subscriber(q, b, c, d);
                                 System.out.println();
                                 System.out.println(
-                                        "What is the payment method used for this purchase? (cash, credit, e-wallet)");
+                                        "/nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
                                 if (meth.equalsIgnoreCase("cash") || meth.equalsIgnoreCase("credit")
                                         || meth.equalsIgnoreCase("e-wallet")) {
