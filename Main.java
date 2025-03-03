@@ -128,6 +128,7 @@ public class Main {
                         col1.removeCustomer(qw);
                     } else if (a1.equals("3")) {
                         col1.printUserList();
+                        
                     } else if (a1.equals("4")) {
                         break;
                     } else {
@@ -166,6 +167,7 @@ public class Main {
                                 System.out
                                         .println("You have successfully given " + col1.findCus(sub).getName()
                                                 + " a form.");
+                                                break;
                             } else {
 
                                 System.out.println("There's no customer with this email-address.");
@@ -289,6 +291,12 @@ public class Main {
                         col2.printOrderList();
 
                     } else if (a2.equals("5")) {
+                        col2.printOrderList();
+                        System.out.println("What order will you mark as paid? Type in the corresponding number.");
+                        int yq = s.nextInt();
+                        if (col1.findO(yq) != null) {
+                            col1.findO(yq).setPending("paid");
+                        }
                     } else if (a2.equals("6")) {
                         col2.printOrderList();
                     } else if (a2.equals("7")) {
