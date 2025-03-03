@@ -5,6 +5,7 @@ public class OrderTaker {
     private Customer cus;
     private String payment;
     private String status;
+    
 
     public OrderTaker(Customer cus, String payment) {
         this.currentDate = LocalDate.now();

@@ -9,20 +9,11 @@ public class Collection {
     private ArrayList<Customer> usList;
     private ArrayList<OrderTaker> orList;
 
-
     public Collection() {
         this.orderList = new HashMap<>();
         this.userList = new HashMap<>();
         this.usList = new ArrayList<>();
         this.orList = new ArrayList<>();
-    }
-
-    public ArrayList<Customer> getU() {
-        return usList;
-    }
-
-    public ArrayList<OrderTaker> getO() {
-        return orList;
     }
 
     public void addU(Customer i) {
@@ -33,11 +24,14 @@ public class Collection {
         orList.add(i);
     }
 
-    public void rmU(Customer i) {
-        usList.remove(i);
+
+    public void rmU(int i) {
+        if (orList.contains(orList.get(i))) {
+            
+        }
     }
 
-    public void rmO(OrderTaker i) {
+    public void rmO(int i) {
         orList.remove(i);
     }
 
@@ -46,9 +40,10 @@ public class Collection {
             if (c.getEmail().equalsIgnoreCase(i)) {
                 return true;
             }
-        } return false;
+        }
+        return false;
     }
-    
+
     public Customer findCus(String i) {
         for (Customer c : usList) {
             if (c.getEmail().equalsIgnoreCase(i)) {
@@ -58,14 +53,12 @@ public class Collection {
         return null;
     }
 
-    /*public boolean findO(String i) {
-        for (OrderTaker c : orList) {
-            if (c.getEmail().equals(i)) {
-                return true;
-            }
-        } return false;
-    }*/
-
+    public OrderTaker findO(int i) {
+        if (orderList.containsKey(i)) {
+            return orderList.get(i);
+        }
+        return null;
+    }
 
     // add customer to the list
     public void addUser(int c, Customer cus) {
@@ -99,16 +92,6 @@ public class Collection {
     public void removeOrder(int orderNumToRemove) {
         userList.remove(orderNumToRemove);
 
-        // make a new hashmap to update the list
-        Map<Integer, OrderTaker> newOrderList = new HashMap<>();
-
-        // create a new hashmap to adjust the numbers corresponding the orders
-        for (Map.Entry<Integer, OrderTaker> entry : orderList.entrySet()) {
-            int newKey = entry.getKey() > orderNumToRemove ? entry.getKey() - 1 : entry.getKey();
-            newOrderList.put(newKey, entry.getValue());
-        }
-
-        orderList = newOrderList;
     }
 
     public void printUserList() {
@@ -121,8 +104,8 @@ public class Collection {
     public void printOrderList() {
         System.out.println("\nOrders:");
         for (Map.Entry<Integer, OrderTaker> entry : orderList.entrySet()) {
-            System.out.println("\n==========" + entry.getKey() + "===========" + entry.getValue() + "\n\n------------------------------------------\n\n");
+            System.out.println("\n==========" + entry.getKey() + "===========" + entry.getValue()
+                    + "\n\n------------------------------------------\n\n");
         }
     }
 }
-

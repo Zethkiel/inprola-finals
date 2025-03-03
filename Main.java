@@ -124,7 +124,9 @@ public class Main {
                     } else if (a1.equals("2")) {
                         col1.printUserList();
                         System.out.println("What user do you want to remove?\nType in the corresponding number.");
-                        col1.removeCustomer(s.nextInt());
+                        int qw = s.nextInt();
+                        col1.removeCustomer(qw);
+                        col1.rmU(qw);
                     } else if (a1.equals("3")) {
                         col1.printUserList();
                     } else if (a1.equals("4")) {
@@ -145,7 +147,7 @@ public class Main {
                 }
             } else if (a.equals("2")) {
                 while (true) {
-                    System.out.println("What would you like to do?");
+                    System.out.println("\nWhat would you like to do?");
                     System.out.println("""
                             '1' to give out order forms to subscribers
                             '2' to add an order ticket to the system
@@ -159,7 +161,7 @@ public class Main {
                     if (a2.equals("1")) {
                         while (true) {
                             System.out.println(
-                                    "Which customer would you like to give the form to?\nType in the complete email-address of the customer");
+                                    "\nWhich customer would you like to give the form to?\nType in the complete email-address of the customer");
                             String sub = s.nextLine();
                             if (col1.findEmailInCus(sub) == true) {
                                 System.out
@@ -168,7 +170,7 @@ public class Main {
                             } else {
 
                                 System.out.println("There's no customer with this email-address.");
-                                System.out.println("Do you want to find another e-mail? y/n");
+                                System.out.println("\nDo you want to find another e-mail? y/n");
                                 String p = s.nextLine();
                                 if (p.equals("y")) {
                                     continue;
@@ -183,7 +185,7 @@ public class Main {
 
                     } else if (a2.equals("2")) {
                         while (true) {
-                            System.out.println("Who placed an order? Type the customers e-mail.");
+                            System.out.println("\nWho placed an order? Type the customers e-mail.");
                             String email = s.nextLine();
                             if (col1.findCus(email) instanceof Subscriber) {
                                 Subscriber user = (Subscriber) col1.findCus(email);
@@ -235,9 +237,9 @@ public class Main {
                                 String c = user.getAddress();
                                 String d = user.getPhone();
                                 cus1 = new OnlineUser(q, b, c, d);
-                                //
+                                System.out.println();
                                 System.out.println(
-                                        "What is the payment method used for this purchase? (cash, credit, e-wallet)");
+                                        "\nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
                                 if (meth.equalsIgnoreCase("cash") || meth.equalsIgnoreCase("credit")
                                         || meth.equalsIgnoreCase("e-wallet")) {
@@ -279,10 +281,13 @@ public class Main {
                         }
                     } else if (a2.equals("3")) {
                         col2.printOrderList();
-                        System.out.println("What order do you want to remove?\nType in the corresponding number.");
+                        System.out.println("\nWhat order do you want to remove?\nType in the corresponding number.");
                         int r = s.nextInt();
                         col2.removeOrder(r);
                     } else if (a2.equals("4")) {
+                        System.out.println("\nWhat order do you want to mark as paid? Enter the order number.\n");
+                        col2.printOrderList();
+
                     } else if (a2.equals("5")) {
                     } else if (a2.equals("6")) {
                         col2.printOrderList();
