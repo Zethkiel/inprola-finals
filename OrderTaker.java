@@ -5,7 +5,7 @@ public class OrderTaker {
     private Customer cus;
     private String payment;
     private String status;
-    
+
 
     public OrderTaker(Customer cus, String payment) {
         this.currentDate = LocalDate.now();
@@ -15,7 +15,7 @@ public class OrderTaker {
     }
 
     public void setPending(String i) {
-        status = i;
+        this.status = i;
     }
 
     public String getPending() {

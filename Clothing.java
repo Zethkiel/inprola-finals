@@ -15,6 +15,23 @@ public class Clothing {
                 items.get(design).put(size, 1000);}} //keys and values of hashmap
     }
 
+    public void printDesigns() {
+        System.out.println("Design choices: ");
+        for (String i : designs) {
+            System.out.println(i);
+        }
+        System.out.println();
+    }
+
+    public void printSizes() {
+        System.out.println("Design choices: ");
+        int p = 0;
+        for (String i : sizes) {
+            System.out.println("'" + p + "' for " i);
+        }
+        System.out.println();
+    }
+
     public void designAndSize() {
         Scanner scanner = new Scanner(System.in);
 

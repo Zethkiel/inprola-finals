@@ -196,7 +196,12 @@ public class Main {
                                 String c = user.getAddress();
                                 String d = user.getPhone();
                                 cus1 = new Subscriber(q, b, c, d);
+                                System.out.println("What items did this customer buy?");
+                                clo = new Clothing();
+                                System.out.println("");
+                                clo.printDesigns();
                                 System.out.println();
+                                clo.printSizes();
                                 System.out.println(
                                         "/nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
