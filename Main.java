@@ -129,7 +129,7 @@ public class Main {
                         s.nextLine();
                     } else if (a1.equals("3")) {
                         col1.printUserList();
-                        
+
                     } else if (a1.equals("4")) {
                         break;
                     } else {
@@ -168,7 +168,7 @@ public class Main {
                                 System.out
                                         .println("You have successfully given " + col1.findCus(sub).getName()
                                                 + " a form.");
-                                                break;
+                                break;
                             } else {
 
                                 System.out.println("There's no customer with this email-address.");
@@ -196,18 +196,25 @@ public class Main {
                                 String c = user.getAddress();
                                 String d = user.getPhone();
                                 cus1 = new Subscriber(q, b, c, d);
-                                System.out.println("What items did this customer buy?");
+                                System.out.println("\nWhat items did this customer buy?");
                                 clo = new Clothing();
-                                System.out.println("");
+                                System.out.println("\nWhat design for this order? type in the number");
                                 clo.printDesigns();
-                                System.out.println();
+                                int des = s.nextInt();
+                                System.out.println("\nWhat size for " + des + "? type in the number");
+                                s.nextLine();
                                 clo.printSizes();
+                                int siz = s.nextInt();
+                                System.out.println("\nHow many for " + des + ", (" + siz + ") ? type in the number");
+                                s.nextLine();
+                                int quan = s.nextInt();
+                                String desize = String.valueOf(quan) + " " + siz + " " + des;
                                 System.out.println(
                                         "/nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
                                 if (meth.equalsIgnoreCase("cash") || meth.equalsIgnoreCase("credit")
                                         || meth.equalsIgnoreCase("e-wallet")) {
-                                    oT = new OrderTaker(cus1, meth);
+                                    oT = new OrderTaker(cus1, meth, desize);
                                     System.out.println("\nOrder details:");
                                     System.out.println(oT.toString());
                                     System.out.println("\n\nAre these info correct? y/n");
@@ -238,19 +245,31 @@ public class Main {
                                     }
                                 }
                             } else if (col1.findCus(email) instanceof OnlineUser) {
-                                OnlineUser user = (OnlineUser) col1.findCus(email);
+                                Subscriber user = (Subscriber) col1.findCus(email);
                                 String q = user.getName();
                                 String b = user.getEmail();
                                 String c = user.getAddress();
                                 String d = user.getPhone();
-                                cus1 = new OnlineUser(q, b, c, d);
-                                System.out.println();
+                                cus1 = new Subscriber(q, b, c, d);
+                                System.out.println("\nWhat items did this customer buy?");
+                                clo = new Clothing();
+                                System.out.println("\nWhat design for this order? type in the number");
+                                clo.printDesigns();
+                                int des = s.nextInt();
+                                System.out.println("\nWhat size for " + des + "? type in the number");
+                                s.nextLine();
+                                clo.printSizes();
+                                int siz = s.nextInt();
+                                System.out.println("\nHow many for " + des + ", (" + siz + ") ? type in the number");
+                                s.nextLine();
+                                int quan = s.nextInt();
+                                String desize = String.valueOf(quan) + " " + siz + " " + des;
                                 System.out.println(
-                                        "\nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
+                                        "/nWhat is the payment method used for this purchase? (cash, credit, e-wallet)");
                                 String meth = s.nextLine();
                                 if (meth.equalsIgnoreCase("cash") || meth.equalsIgnoreCase("credit")
                                         || meth.equalsIgnoreCase("e-wallet")) {
-                                    oT = new OrderTaker(cus1, meth);
+                                    oT = new OrderTaker(cus1, meth, desize);
                                     System.out.println("\nOrder details:");
                                     System.out.println(oT.toString());
                                     System.out.println("\n\nAre these info correct? y/n");

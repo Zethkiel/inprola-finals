@@ -17,8 +17,9 @@ public class Clothing {
 
     public void printDesigns() {
         System.out.println("Design choices: ");
+        int p = 0;
         for (String i : designs) {
-            System.out.println(i);
+            System.out.println("'" + p + "' for " + i);
         }
         System.out.println();
     }
@@ -27,7 +28,7 @@ public class Clothing {
         System.out.println("Design choices: ");
         int p = 0;
         for (String i : sizes) {
-            System.out.println("'" + p + "' for " i);
+            System.out.println("'" + p + "' for " + i);
         }
         System.out.println();
     }
