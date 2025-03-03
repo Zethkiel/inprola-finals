@@ -15,11 +15,20 @@ public class Clothing {
                 items.get(design).put(size, 1000);}} //keys and values of hashmap
     }
 
+    public String design(int i) {
+        return designs[i];
+    }
+
+    public String size(int i) {
+        return sizes[i];
+    }
+
     public void printDesigns() {
         System.out.println("Design choices: ");
         int p = 0;
         for (String i : designs) {
             System.out.println("'" + p + "' for " + i);
+            p++;
         }
         System.out.println();
     }
@@ -29,6 +38,7 @@ public class Clothing {
         int p = 0;
         for (String i : sizes) {
             System.out.println("'" + p + "' for " + i);
+            p++;
         }
         System.out.println();
     }
