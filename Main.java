@@ -287,16 +287,14 @@ public class Main {
                         col2.removeOrder(r);
                         s.nextLine();
                     } else if (a2.equals("4")) {
-                        System.out.println("\nWhat order do you want to mark as paid? Enter the order number.\n");
-                        col2.printOrderList();
-
-                    } else if (a2.equals("5")) {
                         col2.printOrderList();
                         System.out.println("What order will you mark as paid? Type in the corresponding number.");
                         int yq = s.nextInt();
                         if (col1.findO(yq) != null) {
                             col1.findO(yq).setPending("paid");
                         }
+                    } else if (a2.equals("5")) {
+                        //
                     } else if (a2.equals("6")) {
                         col2.printOrderList();
                     } else if (a2.equals("7")) {
